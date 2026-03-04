@@ -1,0 +1,302 @@
+@font-face {
+  font-family: "Akrobat";
+  src: url("../fonts/Akrobat-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Akrobat";
+  src: url("../fonts/Akrobat-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Akrobat";
+  src: url("../fonts/Akrobat-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Akrobat";
+  src: url("../fonts/Akrobat-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.num-features {
+  font-feature-settings:
+    "lnum" 1,
+    "tnum" 1;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+/* SCROLL ENTRY ANIMATIONS */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.js-animate {
+  opacity: 0;
+}
+
+.js-animate.is-visible {
+  animation: fadeInRight 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.js-animate.anim-up.is-visible {
+  animation: fadeInUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.anim-delay-1.is-visible {
+  animation-delay: 0.1s;
+}
+.anim-delay-2.is-visible {
+  animation-delay: 0.2s;
+}
+.anim-delay-3.is-visible {
+  animation-delay: 0.3s;
+}
+.anim-delay-4.is-visible {
+  animation-delay: 0.4s;
+}
+
+/* MODAL TRANSITION */
+#modal-overlay {
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+#modal-overlay.is-open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+#modal-container {
+  transform: translateY(12px) scale(0.98);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#modal-overlay.is-open #modal-container {
+  transform: translateY(0) scale(1);
+}
+
+/* PROPERTY CARD */
+.property-badge {
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+
+/* CUSTOM CHECKBOX */
+.custom-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  border-radius: 4px;
+  border: 1px solid rgba(167, 169, 172, 0.25);
+  background: #edeeef;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.custom-checkbox:hover {
+  border: 1px solid #813481;
+}
+
+.custom-checkbox:checked {
+  background: #813481;
+  border-color: #813481;
+}
+
+.custom-checkbox:checked::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 1px;
+  width: 7.3px;
+  height: 4.4px;
+  border-left: 1.5px solid white;
+  border-bottom: 1.5px solid white;
+  transform: rotate(-45deg);
+  top: 4px;
+}
+
+/* NAV ARROWS */
+.nav-arrow {
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.nav-arrow:hover {
+  background: rgba(240, 240, 240, 0.55);
+}
+
+/* ШАПКА */
+header nav {
+  transition: all 0.3s ease;
+}
+
+header.header-scrolled nav {
+  box-shadow: 0 4px 36px -20px rgba(0, 0, 0, 0.6);
+}
+
+/* HOVER */
+.kord-phone-btn {
+  transition: all 0.3s ease;
+}
+
+.kord-phone-btn:hover {
+  background:
+    linear-gradient(rgba(129, 52, 129, 0.1), rgba(129, 52, 129, 0.1)), #f4f2f7;
+}
+
+.kord-phone-btn:hover .kord-phone-num {
+  color: #813481;
+}
+
+.kord-phone-btn:hover g {
+  opacity: 1;
+}
+
+.kord-phone-btn:hover svg path {
+  fill: #813481;
+}
+
+.kord-hamburger {
+  transition: all 0.3s ease;
+}
+
+.kord-hamburger:hover {
+  background:
+    linear-gradient(rgba(129, 52, 129, 0.1), rgba(129, 52, 129, 0.1)), #f4f2f7;
+}
+
+.btn-whatsapp {
+  transition: all 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+  background:
+    linear-gradient(rgba(129, 52, 129, 0.2), rgba(129, 52, 129, 0.2)), #fff;
+}
+
+.btn-whatsapp:hover span {
+  color: #813481;
+}
+
+.btn-objects {
+  transition: all 0.3s ease;
+}
+
+.btn-objects:hover {
+  background-color: #813481;
+}
+
+.btn-objects:hover svg path {
+  stroke: #fff;
+}
+
+.btn-telegram:hover {
+  background-color: #01a2dd;
+}
+
+.btn-max:hover {
+  background:
+    linear-gradient(74deg, #4cf 14.56%, #53e 63.57%, #93d 88.6%),
+    radial-gradient(
+      50% 121.35% at -2.38% -43.92%,
+      #00f 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
+}
+
+.btn-dzen:hover {
+  background-color: #202022;
+}
+
+/* INPUT */
+
+.kord-input-wrap {
+  transition: background 0.15s;
+}
+
+.kord-input-wrap:hover {
+  background: linear-gradient(rgba(129, 52, 129, 0.05), rgba(129, 52, 129, 0.05)), #f4f2f7;
+}
+
+.kord-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(129, 52, 129, 0.2);
+}
+
+.btn-vk:hover {
+  background-color: #0077ff;
+}
+
+.btn-odn:hover {
+  background-color: #ff7700;
+}
+
+.btn-telegram:hover svg path,
+.btn-max:hover svg path,
+.btn-dzen:hover svg path,
+.btn-vk:hover svg path,
+.btn-odn:hover svg path {
+  fill: #fff;
+}
