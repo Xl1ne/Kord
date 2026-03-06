@@ -1,0 +1,36 @@
+header nav {
+  transition: box-shadow 0.3s ease;
+}
+
+.header-scrolled nav {
+  box-shadow: 0 4px 36px -20px rgba(0, 0, 0, 0.60);
+}
+
+.service-rows-scroll {
+  scrollbar-width: none;
+}
+
+.service-rows-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.cases-swiper .swiper-slide {
+  height: auto;
+}
+
+@media (min-width: 1024px) {
+  .service-row > div:first-child {
+    flex: 1;
+    margin-right: -2rem;
+    margin-bottom: 0;
+  }
+
+  .service-row > div:last-child {
+    flex: 1;
+    border-radius: 0 24px 24px 0;
+    margin-right: -2rem;
+    padding-left: 4rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+}

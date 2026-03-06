@@ -18,6 +18,7 @@
     />
 
     <link rel="stylesheet" href="assets/styles/main.css" />
+    <link rel="stylesheet" href="assets/styles/media.css" />
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -39,22 +40,23 @@
   </head>
 
   <body class="bg-[#FDFDFD] font-akrobat text-[#223342] antialiased">
-    <div class="max-w-[1440px] mx-auto px-4">
-      <!-- HEADER -->
-      <header class="py-4">
+    <div
+      class="max-w-[375px] mx-auto px-4 md:max-w-[677px] lg:max-w-[1440px] lg:pt-[88px]"
+    >
+      <header class="fixed z-50 flex flex-col gap-[2px] left-1/2 -translate-x-1/2 top-3 w-full max-w-[351px] md:top-[14px] md:max-w-[647px] lg:top-4 lg:w-[calc(100%-2rem)] lg:max-w-[1408px]">
         <nav
-          class="bg-white flex items-center justify-between pl-7 pr-2 py-2 rounded-[20px]"
+          class="bg-white flex items-center justify-between pl-4 pr-[6px] py-[6px] rounded-[16px] lg:pl-7 lg:pr-2 lg:py-2 lg:rounded-[20px]"
         >
           <a href="/" class="flex-shrink-0 py-1" aria-label="КОРД — на главную">
             <img
               src="./assets/images/logo.svg"
               alt="КОРД"
-              class="h-10 w-auto"
+              class="h-8 w-auto lg:h-10"
             />
           </a>
 
           <div class="flex items-center gap-16">
-            <div class="flex items-center gap-7">
+            <div class="hidden lg:flex items-center gap-7">
               <a
                 href="#objects"
                 class="font-akrobat font-bold text-[18px] leading-[22px] text-[#223342] whitespace-nowrap hover:text-primary transition-all duration-300"
@@ -82,12 +84,14 @@
               >
             </div>
 
-            <div class="flex items-center gap-4">
+            <div class="flex items-center gap-2 lg:gap-4">
               <button
-                class="kord-hamburger w-12 h-12 bg-[#f4f2f7] rounded-full flex items-center justify-center flex-shrink-0"
+                class="kord-hamburger w-10 h-10 bg-[#f4f2f7] rounded-full flex items-center justify-center flex-shrink-0 lg:hidden"
                 aria-label="Меню"
+                aria-expanded="false"
               >
                 <svg
+                  class="bars-icon"
                   width="20"
                   height="20"
                   viewBox="0 0 20 20"
@@ -98,10 +102,31 @@
                   <rect y="9" width="20" height="2" rx="1" fill="#813481" />
                   <rect y="16" width="20" height="2" rx="1" fill="#813481" />
                 </svg>
+                <svg
+                  class="cross-icon hidden"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M2 2L18 18"
+                    stroke="#813481"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M18 2L2 18"
+                    stroke="#813481"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                </svg>
               </button>
 
               <button
-                class="kord-phone-btn bg-[#f4f2f7] flex items-center gap-3 p-3 rounded-[12px] flex-shrink-0"
+                class="kord-phone-btn bg-[#f4f2f7] w-10 h-10 flex items-center justify-center rounded-[12px] flex-shrink-0 lg:w-auto lg:h-auto lg:gap-3 lg:p-3"
                 onclick="openModal()"
                 aria-label="Позвонить нам"
               >
@@ -122,7 +147,7 @@
                   </g>
                 </svg>
                 <span
-                  class="kord-phone-num font-unbounded font-medium text-[14px] leading-6 text-[#223342] whitespace-nowrap num-features transition-all duration-300"
+                  class="hidden lg:inline font-unbounded font-medium text-[14px] leading-6 text-[#223342] whitespace-nowrap num-features transition-all duration-300"
                 >
                   8 985 146 89 08
                 </span>
@@ -130,33 +155,126 @@
             </div>
           </div>
         </nav>
+
+        <div
+          id="mobile-menu"
+          class="lg:hidden overflow-hidden"
+          style="
+            max-height: 0;
+            transition: max-height 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+          "
+          aria-hidden="true"
+        >
+          <div
+            class="bg-white rounded-[16px] shadow-[0_4px_36px_-20px_rgba(0,0,0,0.6)] p-3 flex flex-col gap-10"
+          >
+            <div class="flex flex-col gap-4 p-3">
+              <a
+                href="#objects"
+                class="mobile-menu-link font-unbounded font-bold text-[18px] leading-6 uppercase text-[#223342]"
+                >Объекты</a
+              >
+              <a
+                href="#services"
+                class="mobile-menu-link font-unbounded font-bold text-[18px] leading-6 uppercase text-[#223342]"
+                >Работа с Корд</a
+              >
+              <a
+                href="#cases"
+                class="mobile-menu-link font-unbounded font-bold text-[18px] leading-6 uppercase text-[#223342]"
+                >Успешные кейсы</a
+              >
+              <a
+                href="#team"
+                class="mobile-menu-link font-unbounded font-bold text-[18px] leading-6 uppercase text-[#223342]"
+                >Команда</a
+              >
+              <a
+                href="#contacts"
+                class="mobile-menu-link font-unbounded font-bold text-[18px] leading-6 uppercase text-[#223342]"
+                >Контакты</a
+              >
+            </div>
+            <div class="flex flex-col gap-2">
+              <a
+                href="tel:89851468908"
+                class="bg-[#f4f2f7] flex gap-3 h-[54px] items-center justify-center p-3 rounded-[12px]"
+              >
+                <div
+                  class="w-10 h-10 bg-[#f4f2f7] flex items-center justify-center rounded-[12px] flex-shrink-0"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <g opacity="0.2">
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M3.0008 16.4764V19.1861C3.0008 19.6946 3.20897 20.1806 3.58908 20.5247C3.96014 20.8688 4.46692 21.0386 4.97373 20.9926C7.76118 20.6909 10.431 19.7407 12.784 18.2196C14.9742 16.8332 16.8204 14.9824 18.2141 12.8002C19.7436 10.4437 20.6957 7.76105 20.9925 4.96914C21.0387 4.46423 20.8694 3.96292 20.5264 3.58898C20.1843 3.21414 19.6993 3.00099 19.1916 3.00009H16.4765C15.5715 2.99106 14.7932 3.65582 14.6665 4.55363C14.5488 5.42074 14.3407 6.27255 14.033 7.09179C13.7886 7.75205 13.9425 8.49631 14.4402 8.9976L15.5896 10.1447C14.3044 12.4064 12.422 14.2779 10.1595 15.5641L9.01012 14.417C8.50331 13.9212 7.76121 13.7622 7.10055 14.0106C6.27698 14.3168 5.42622 14.5281 4.5574 14.6428C3.64333 14.7711 2.97365 15.5596 3.0008 16.4764Z"
+                        fill="#813481"
+                      />
+                    </g>
+                  </svg>
+                </div>
+                <span
+                  class="font-unbounded font-medium text-[20px] leading-[22px] text-[#813481] whitespace-nowrap num-features"
+                  >8 985 146 89 08</span
+                >
+              </a>
+              <a
+                href="#"
+                class="bg-[#813481] flex items-center justify-center px-5 py-4 rounded-[12px] w-full hover:bg-[#662966] transition-all duration-300"
+              >
+                <span
+                  class="font-akrobat font-bold text-[18px] leading-[22px] text-white whitespace-nowrap"
+                  >Написать в Telegram</span
+                >
+              </a>
+              <a
+                href="#"
+                class="bg-[#f4f2f7] flex items-center justify-center px-5 py-4 rounded-[12px] w-full"
+              >
+                <span
+                  class="font-akrobat font-bold text-[18px] leading-[22px] text-[#223342] whitespace-nowrap"
+                  >Написать в Whatsapp</span
+                >
+              </a>
+            </div>
+          </div>
+        </div>
       </header>
 
-      <!-- HERO -->
-      <section class="mt-4" aria-label="Главный экран">
+      <section class="-mx-4 lg:mx-0 lg:mt-0" aria-label="Главный экран">
         <div
-          class="grid gap-4 h-[544px]"
+          class="flex flex-col mt-[6px] mx-[6px] rounded-[24px] overflow-hidden lg:mt-0 lg:mx-0 lg:bg-transparent lg:rounded-none lg:overflow-visible lg:grid lg:h-[544px] lg:gap-4"
           style="grid-template-columns: 446px 1fr"
         >
           <div
-            class="bg-[#f4f2f7] rounded-[24px] p-4 flex flex-col justify-between overflow-hidden"
+            class="bg-[#f4f2f7] flex flex-col justify-between p-4 gap-6 order-2 mt-[-164px] ml-[8px] mr-[8px] rounded-[24px] relative z-10 lg:mt-0 lg:rounded-none lg:order-first lg:rounded-[24px] lg:gap-0 lg:overflow-hidden"
           >
             <div class="flex flex-col gap-2">
               <div class="flex flex-col gap-4 p-4 text-[#223342]">
                 <h1
-                  class="font-unbounded font-bold text-[28px] leading-[34px] uppercase"
+                  class="font-unbounded font-bold text-[24px] leading-7 md:text-[32px] md:leading-9 lg:text-[28px] lg:leading-[34px] uppercase"
                 >
                   Помогаем<br />
                   инвесторам<br />
                   купить объекты<br />
                   выгодно
                 </h1>
-                <p class="font-akrobat font-bold text-[18px] leading-[22px]">
+                <p
+                  class="font-akrobat font-bold text-[16px] leading-5 lg:text-[18px] lg:leading-[22px]"
+                >
                   а собственникам — быстро продать жилье
                 </p>
               </div>
 
-              <div class="flex flex-col gap-1 px-4">
+              <div class="hidden lg:flex flex-col gap-1 px-4">
                 <div
                   class="bg-white flex items-center justify-center px-2 py-1 rounded-[8px] w-full"
                 >
@@ -209,41 +327,78 @@
             </div>
           </div>
 
-          <div class="rounded-[24px] overflow-hidden relative">
+          <div
+            class="relative order-1 h-[400px] overflow-hidden lg:order-last lg:h-full lg:rounded-[24px]"
+          >
             <img
               src="./assets/images/hero-img.jpg"
               alt="Объект недвижимости"
               class="w-full h-full object-cover"
             />
             <div
-              class="absolute bottom-0 left-0 right-0 h-20 pointer-events-none"
+              class="absolute bottom-0 left-0 right-0 h-[200px] pointer-events-none lg:hidden"
               style="
                 background: linear-gradient(
                   to top,
-                  rgba(244, 242, 247, 0.55),
+                  #f4f2f7 0%,
+                  rgba(244, 242, 247, 0.85) 40%,
+                  transparent 100%
+                );
+              "
+            ></div>
+            <div
+              class="hidden lg:block absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
+              style="
+                background: linear-gradient(
+                  to top,
+                  rgba(244, 242, 247, 0.85),
                   transparent
                 );
               "
             ></div>
           </div>
+
+          <div
+            class="flex flex-col mt-1 gap-1 order-3 px-[8px] pb-[8px] lg:hidden"
+          >
+            <div
+              class="bg-[#f4f2f7] flex items-center justify-center px-2 py-1 rounded-[8px] w-full"
+            >
+              <p
+                class="font-akrobat font-bold text-[16px] leading-5 lg:text-[18px] lg:leading-[22px] text-[#223342] whitespace-nowrap"
+              >
+                Находим лоты с доходностью 15% — 20%
+              </p>
+            </div>
+            <div
+              class="bg-[#f4f2f7] flex items-center justify-center px-2 py-1 rounded-[8px] w-full"
+            >
+              <p
+                class="font-akrobat font-bold text-[16px] leading-5 lg:text-[18px] lg:leading-[22px] text-[#223342] whitespace-nowrap"
+              >
+                Продаем объекты за 35 дней
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <!-- ОБЪЕКТЫ С ПОТЕНЦИАЛОМ -->
       <section
         id="objects"
-        class="mt-40 flex flex-col gap-14"
+        class="mt-20 pb-10 lg:mt-40 flex flex-col gap-8 lg:gap-14 lg:pb-0"
         aria-label="Объекты"
       >
         <div
           class="flex flex-col gap-2 items-center text-center text-[#223342] js-animate anim-up"
         >
           <h2
-            class="font-unbounded font-bold text-[32px] leading-[38px] uppercase w-full"
+            class="font-unbounded font-bold text-[24px] leading-7 lg:text-[32px] lg:leading-[38px] uppercase w-full"
           >
             объекты с потенциалом
           </h2>
-          <p class="font-akrobat font-bold text-[18px] leading-[22px] w-full">
+          <p
+            class="font-akrobat font-bold text-[16px] leading-5 lg:text-[18px] lg:leading-[22px] w-full"
+          >
             которые мы отобрали вручную
           </p>
         </div>
@@ -655,6 +810,270 @@
                       class="relative h-[240px] rounded-[24px] overflow-hidden flex-shrink-0"
                     >
                       <img
+                        src="./assets/images/objects-1.png"
+                        alt="Помещение"
+                        class="w-full h-full object-cover"
+                      />
+                      <div
+                        class="property-badge absolute top-3 right-3 bg-[#55c400] flex items-center gap-1 pl-2 pr-3 py-[6px] rounded-[12px]"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="27"
+                          height="18"
+                          viewBox="0 0 27 18"
+                          fill="none"
+                        >
+                          <path
+                            d="M19.2427 11.0605L13.2427 17.0605L7.24268 11.0605H19.2427Z"
+                            fill="white"
+                          />
+                          <path
+                            d="M13.2427 11.1214L3.62147 1.50021H22.8639L13.2427 11.1214Z"
+                            fill="white"
+                            stroke="#55C400"
+                            stroke-width="3"
+                          />
+                        </svg>
+                        <span
+                          class="font-akrobat font-bold text-[14px] leading-[18px] text-white tracking-[-0.28px] whitespace-nowrap"
+                          >Ниже рынка на 15%</span
+                        >
+                      </div>
+                    </div>
+                    <div class="flex flex-col gap-4 px-1">
+                      <div class="flex flex-col gap-2">
+                        <div class="flex items-center gap-[6px]">
+                          <span
+                            class="font-akrobat font-semibold text-[14px] leading-[18px] text-[#223342]"
+                            >Помещение</span
+                          >
+                          <div
+                            class="bg-[#f0f0f2] flex items-center justify-center px-[6px] py-[2px] rounded-[6px] h-6"
+                          >
+                            <span
+                              class="font-akrobat font-bold text-[14px] leading-[18px] text-[#223342] whitespace-nowrap"
+                              >1 000 м²</span
+                            >
+                          </div>
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="17"
+                            viewBox="0 0 24 17"
+                            fill="none"
+                          >
+                            <path
+                              d="M18.8284 9.40332L11.8284 16.4033L4.82837 9.40332H18.8284Z"
+                              fill="#55C400"
+                            />
+                            <path
+                              d="M11.8284 10.4141L2.41432 1.00005H21.2424L11.8284 10.4141Z"
+                              fill="#55C400"
+                              stroke="white"
+                              stroke-width="2"
+                            />
+                          </svg>
+                          <span
+                            class="font-unbounded font-bold text-[26px] leading-[32px] text-[#223342] tracking-[-0.52px] uppercase whitespace-nowrap num-features"
+                            >68 453 200 ₽</span
+                          >
+                        </div>
+                      </div>
+                      <div class="flex flex-col gap-1">
+                        <div class="flex items-center gap-[6px]">
+                          <span
+                            class="w-[6px] h-[6px] rounded-full bg-[#3652CE] flex-shrink-0"
+                            aria-hidden="true"
+                          ></span>
+                          <span
+                            class="font-akrobat font-bold text-[14px] leading-[18px] text-[#223342] overflow-hidden text-ellipsis whitespace-nowrap"
+                            >Фрунзенская</span
+                          >
+                        </div>
+                        <p
+                          class="font-akrobat font-semibold text-[14px] leading-[18px] text-[#223342] opacity-50 overflow-hidden text-ellipsis whitespace-nowrap"
+                        >
+                          Санкт-Петербург, Коломяжский проспект, 15к2
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+
+                <div class="swiper-slide">
+                  <article class="property-card flex flex-col gap-4 relative">
+                    <div
+                      class="relative h-[240px] rounded-[24px] overflow-hidden flex-shrink-0"
+                    >
+                      <img
+                        src="./assets/images/objects-2.png"
+                        alt="Помещение"
+                        class="w-full h-full object-cover"
+                      />
+                      <div
+                        class="property-badge absolute top-3 right-3 bg-[#fdfdfd] flex items-center gap-2 pl-2 pr-3 py-[6px] rounded-[12px]"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          class="rounded-full bg-[#FF7B2F] flex-shrink-0 p-0.5"
+                        >
+                          <path
+                            d="M7.52447 2.46352C7.67415 2.00287 8.32585 2.00287 8.47553 2.46353L9.45934 5.49139C9.52628 5.6974 9.71826 5.83688 9.93487 5.83688H13.1186C13.6029 5.83688 13.8043 6.45669 13.4124 6.74139L10.8368 8.61271C10.6615 8.74003 10.5882 8.96572 10.6552 9.17173L11.639 12.1996C11.7886 12.6602 11.2614 13.0433 10.8695 12.7586L8.29389 10.8873C8.11865 10.76 7.88135 10.76 7.70611 10.8873L5.13045 12.7586C4.73859 13.0433 4.21136 12.6602 4.36103 12.1996L5.34484 9.17173C5.41178 8.96572 5.33845 8.74003 5.16321 8.61271L2.58755 6.74139C2.1957 6.45669 2.39708 5.83688 2.88145 5.83688H6.06513C6.28174 5.83688 6.47372 5.6974 6.54066 5.49139L7.52447 2.46352Z"
+                            fill="#FDFDFD"
+                          />
+                        </svg>
+                        <span
+                          class="font-akrobat font-bold text-[14px] leading-[18px] text-[#223342] tracking-[-0.28px] whitespace-nowrap"
+                          >Окупаемость 7 лет</span
+                        >
+                      </div>
+                    </div>
+                    <div class="flex flex-col gap-4 px-1">
+                      <div class="flex flex-col gap-2">
+                        <div class="flex items-center gap-[6px]">
+                          <span
+                            class="font-akrobat font-semibold text-[14px] leading-[18px] text-[#223342]"
+                            >Помещение</span
+                          >
+                          <div
+                            class="bg-[#f0f0f2] flex items-center justify-center px-[6px] py-[2px] rounded-[6px] h-6"
+                          >
+                            <span
+                              class="font-akrobat font-bold text-[14px] leading-[18px] text-[#223342] whitespace-nowrap"
+                              >1 000 м²</span
+                            >
+                          </div>
+                        </div>
+                        <span
+                          class="font-unbounded font-bold text-[26px] leading-[32px] text-[#223342] tracking-[-0.52px] uppercase whitespace-nowrap num-features"
+                          >68 453 200 ₽</span
+                        >
+                      </div>
+                      <div class="flex flex-col gap-1">
+                        <div class="flex items-center gap-[6px]">
+                          <span
+                            class="w-[6px] h-[6px] rounded-full bg-[#3652CE] flex-shrink-0"
+                            aria-hidden="true"
+                          ></span>
+                          <span
+                            class="font-akrobat font-bold text-[14px] leading-[18px] text-[#223342] overflow-hidden text-ellipsis whitespace-nowrap"
+                            >Фрунзенская</span
+                          >
+                        </div>
+                        <p
+                          class="font-akrobat font-semibold text-[14px] leading-[18px] text-[#223342] opacity-50 overflow-hidden text-ellipsis whitespace-nowrap"
+                        >
+                          Санкт-Петербург, Коломяжский проспект, 15к2
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+
+                <div class="swiper-slide">
+                  <article class="property-card flex flex-col gap-4 relative">
+                    <div
+                      class="relative h-[240px] rounded-[24px] overflow-hidden flex-shrink-0"
+                    >
+                      <img
+                        src="./assets/images/objects-3.png"
+                        alt="Помещение"
+                        class="w-full h-full object-cover"
+                      />
+                      <div
+                        class="property-badge absolute top-3 right-3 bg-[#fdfdfd] flex items-center gap-2 pl-2 pr-3 py-[6px] rounded-[12px]"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          class="rounded-full bg-[#55C400] flex-shrink-0 p-0.5"
+                        >
+                          <path
+                            d="M12.7 5.5L7.03328 10.5L3.69995 7.55882"
+                            stroke="#FDFDFD"
+                            stroke-width="2.66667"
+                          />
+                        </svg>
+                        <span
+                          class="font-akrobat font-bold text-[14px] leading-[18px] text-[#223342] tracking-[-0.28px] whitespace-nowrap"
+                          >Готовый арендатор</span
+                        >
+                      </div>
+                    </div>
+                    <div class="flex flex-col gap-4 px-1">
+                      <div class="flex flex-col gap-2">
+                        <div class="flex items-center gap-[6px]">
+                          <span
+                            class="font-akrobat font-semibold text-[14px] leading-[18px] text-[#223342]"
+                            >Помещение</span
+                          >
+                          <div class="flex items-center gap-1.5">
+                            <div
+                              class="bg-[#f0f0f2] flex items-center justify-center px-[6px] py-[2px] rounded-[6px] h-6"
+                            >
+                              <span
+                                class="font-akrobat font-bold text-[14px] leading-[18px] text-[#223342] whitespace-nowrap"
+                                >1 000 м²</span
+                              >
+                            </div>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              class="rounded-full bg-[#55C400] flex-shrink-0 p-0.5"
+                            >
+                              <path
+                                d="M12.7 5.5L7.03328 10.5L3.69995 7.55882"
+                                stroke="#FDFDFD"
+                                stroke-width="2.66667"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                        <span
+                          class="font-unbounded font-bold text-[26px] leading-[32px] text-[#223342] tracking-[-0.52px] uppercase whitespace-nowrap num-features"
+                          >68 453 200 ₽</span
+                        >
+                      </div>
+                      <div class="flex flex-col gap-1">
+                        <div class="flex items-center gap-[6px]">
+                          <span
+                            class="w-[6px] h-[6px] rounded-full bg-[#3652CE] flex-shrink-0"
+                            aria-hidden="true"
+                          ></span>
+                          <span
+                            class="font-akrobat font-bold text-[14px] leading-[18px] text-[#223342] overflow-hidden text-ellipsis whitespace-nowrap"
+                            >Фрунзенская</span
+                          >
+                        </div>
+                        <p
+                          class="font-akrobat font-semibold text-[14px] leading-[18px] text-[#223342] opacity-50 overflow-hidden text-ellipsis whitespace-nowrap"
+                        >
+                          Санкт-Петербург, Коломяжский проспект, 15к2
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+
+                <div class="swiper-slide">
+                  <article class="property-card flex flex-col gap-4 relative">
+                    <div
+                      class="relative h-[240px] rounded-[24px] overflow-hidden flex-shrink-0"
+                    >
+                      <img
                         src="./assets/images/objects-4.png"
                         alt="Помещение"
                         class="w-full h-full object-cover"
@@ -707,26 +1126,29 @@
         </div>
       </section>
 
-      <!-- НАША ФИЛОСОФИЯ -->
-      <section id="philosophy" class="mt-40" aria-label="Наша философия">
-        <div class="flex gap-8 items-start">
+      <section
+        id="philosophy"
+        class="mt-20 lg:mt-40"
+        aria-label="Наша философия"
+      >
+        <div class="flex flex-col gap-12 lg:flex-row lg:items-start">
           <div
-            class="w-[600px] flex-shrink-0 self-start sticky top-0 pt-20 flex flex-col gap-8"
+            class="w-full flex flex-col gap-4 lg:w-[600px] lg:flex-shrink-0 lg:self-start lg:sticky lg:top-0 lg:pt-20 lg:gap-8"
           >
-            <div class="pr-40 flex flex-col gap-4">
+            <div class="flex flex-col gap-1 lg:pr-40 lg:gap-4">
               <p
-                class="font-akrobat font-bold text-[14px] leading-[18px] text-primary overflow-hidden text-ellipsis whitespace-nowrap"
+                class="font-akrobat font-bold text-center text-[14px] leading-[18px] text-primary overflow-hidden text-ellipsis whitespace-nowrap lg:text-start"
               >
                 Наша философия
               </p>
               <h2
-                class="font-unbounded font-bold text-[26px] leading-[32px] tracking-[-0.52px] uppercase text-[#223342] num-features"
+                class="font-unbounded text-center font-bold text-[24px] leading-7 tracking-[-0.48px] lg:text-[26px] lg:leading-8 lg:tracking-[-0.52px] uppercase text-[#223342] num-features lg:text-start"
               >
                 Экспертиза, которая не тонет в бюрократии
               </h2>
             </div>
             <p
-              class="font-akrobat font-bold text-[18px] leading-[22px] text-[#223342] pr-40"
+              class="font-akrobat font-bold text-[16px] text-center leading-5 text-[#223342] lg:text-[18px] lg:leading-[22px] lg:pr-40 lg:text-start"
             >
               Мы — небольшая и мобильная команда. В крупных холдингах брокеры
               часто работают «на поток», считая количество звонков, а не
@@ -739,16 +1161,16 @@
             </p>
           </div>
 
-          <div class="flex-1 pt-20 flex flex-col gap-8">
-            <div class="flex flex-col gap-4 pt-8">
+          <div class="w-full flex flex-col gap-12 lg:flex-1 lg:pt-20 lg:gap-8">
+            <div class="flex flex-col gap-4 lg:pt-8">
               <div class="relative pb-[6px]">
                 <p
-                  class="font-unbounded font-bold text-[56px] leading-[44px] tracking-[-1.12px] uppercase text-[#223342] text-center opacity-20 num-features"
+                  class="font-unbounded font-bold text-[29px] leading-8 tracking-[-0.58px] md:text-[50px] md:leading-[48px] md:tracking-[-1px] lg:text-[56px] lg:leading-[44px] lg:tracking-[-1.12px] uppercase text-[#223342] text-center opacity-20 num-features"
                 >
                   Инвесторам
                 </p>
                 <div
-                  class="relative h-[320px] rounded-[24px] overflow-hidden flex items-end p-6 -mt-[6px]"
+                  class="relative h-[320px] rounded-[24px] overflow-hidden flex items-end p-4 -mt-[10px] lg:-mt-[6px] lg:p-6"
                 >
                   <img
                     src="./assets/images/invest-img.png"
@@ -759,16 +1181,16 @@
                     class="absolute inset-0 bg-[rgba(34,51,66,0.2)] rounded-[24px]"
                   ></div>
                   <div
-                    class="relative z-10 bg-white flex-1 flex flex-col gap-2 pl-6 pr-20 py-6 rounded-[24px] text-[#223342]"
+                    class="relative z-10 bg-white flex-1 flex flex-col gap-1.5 p-4 rounded-[24px] text-[#223342] lg:pl-6 lg:pr-20 lg:py-6 lg:gap-2"
                   >
                     <p
-                      class="font-unbounded font-bold text-[16px] leading-6 tracking-[-0.32px] uppercase num-features"
+                      class="font-unbounded font-bold text-[14px] leading-[20px] tracking-[-0.32px] uppercase num-features lg:text-[16px] lg:leading-6"
                     >
                       Найдем готовый арендный бизнес или перспективный объект
                       под редевелопмент.
                     </p>
                     <p
-                      class="font-akrobat font-semibold text-[18px] leading-[22px] opacity-60"
+                      class="font-akrobat font-semibold text-[16px] leading-[20px] opacity-60 lg:text-[18px] lg:leading-[22px]"
                     >
                       Просчитаем финансовую модель до копейки, чтобы вы видели
                       реальную окупаемость. Мы не исчезаем после сделки — мы
@@ -778,14 +1200,18 @@
                 </div>
               </div>
 
-              <div class="flex flex-col gap-3">
-                <div class="service-row flex isolate items-start pr-8 relative">
+              <div
+                class="service-rows-scroll flex gap-2 pb-2 items-start overflow-x-auto snap-x snap-mandatory lg:flex-col lg:overflow-x-visible lg:snap-none lg:gap-3 lg:pb-0"
+              >
+                <div
+                  class="service-row flex flex-col isolate items-start pb-8 w-[320px] md:w-[360px] shrink-0 snap-start lg:flex-row lg:pb-0 lg:w-auto lg:shrink lg:snap-align-none lg:pr-8"
+                >
                   <div
-                    class="relative z-[2] flex-1 bg-[#f4f2f7] rounded-[24px] flex flex-col gap-4 p-6 h-[216px] -mr-8"
+                    class="relative z-[2] w-full bg-[#f4f2f7] rounded-[24px] flex flex-col gap-4 p-5 -mb-8 h-[200px] md:h-[200px] lg:h-[216px]"
                   >
                     <div class="flex gap-1 items-center">
                       <div
-                        class="w-8 h-8 bg-[#4cc36e] rounded-full flex items-center justify-center flex-shrink-0"
+                        class="w-8 h-8 bg-[#4cc36e] rounded-full flex items-center justify-center shrink-0"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -812,20 +1238,18 @@
                       <p class="font-akrobat font-black text-[22px] leading-6">
                         Технический аудит
                       </p>
-                      <p
-                        class="font-akrobat font-bold text-[18px] leading-[22px]"
-                      >
+                      <p class="font-akrobat font-bold text-[16px] leading-5">
                         Мы проверяем каждый кВт и каждую запятую в выписке ЕГРН.
                         Вы покупаете чистый объект без «сюрпризов».
                       </p>
                     </div>
                   </div>
                   <div
-                    class="relative z-[1] flex-1 bg-white border border-[rgba(145,143,148,0.3)] rounded-br-[24px] rounded-tr-[24px] flex flex-col gap-4 pl-16 pr-6 py-[23px] -mr-8"
+                    class="relative z-[1] w-full bg-white border border-[rgba(145,143,148,0.3)] rounded-bl-[24px] rounded-br-[24px] flex flex-col gap-4 pt-12 pb-5 px-5 h-[268px] md:h-[268px] lg:h-[216px]"
                   >
                     <div class="flex gap-1 items-center">
                       <div
-                        class="w-8 h-8 bg-[#ff6161] rounded-full flex items-center justify-center flex-shrink-0"
+                        class="w-8 h-8 bg-[#ff6161] rounded-full flex items-center justify-center shrink-0"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -852,9 +1276,7 @@
                       <p class="font-akrobat font-black text-[22px] leading-6">
                         Неожиданные сюрпризы
                       </p>
-                      <p
-                        class="font-akrobat font-bold text-[18px] leading-[22px]"
-                      >
+                      <p class="font-akrobat font-bold text-[16px] leading-5">
                         Вы покупаете помещение, а через месяц выясняется, что
                         мощности электричества не хватает, а по документам это
                         вообще жилой фонд.
@@ -863,13 +1285,15 @@
                   </div>
                 </div>
 
-                <div class="service-row flex isolate items-start pr-8 relative">
+                <div
+                  class="service-row flex flex-col isolate items-start pb-8 w-[320px] md:w-[360px] shrink-0 snap-start lg:flex-row lg:pb-0 lg:w-auto lg:shrink lg:snap-align-none lg:pr-8"
+                >
                   <div
-                    class="relative z-[2] flex-1 bg-[#f4f2f7] rounded-[24px] flex flex-col gap-4 p-6 h-[216px] -mr-8"
+                    class="relative z-[2] w-full bg-[#f4f2f7] rounded-[24px] flex flex-col gap-4 p-5 -mb-8 h-[200px] md:h-[200px] lg:h-[216px]"
                   >
                     <div class="flex gap-1 items-center">
                       <div
-                        class="w-8 h-8 bg-[#4cc36e] rounded-full flex items-center justify-center flex-shrink-0"
+                        class="w-8 h-8 bg-[#4cc36e] rounded-full flex items-center justify-center shrink-0"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -896,9 +1320,7 @@
                       <p class="font-akrobat font-black text-[22px] leading-6">
                         Точный расчет
                       </p>
-                      <p
-                        class="font-akrobat font-bold text-[18px] leading-[22px]"
-                      >
+                      <p class="font-akrobat font-bold text-[16px] leading-5">
                         Мы составляем прозрачную финансовую модель. Вы заранее
                         понимаете все цифры и сроки, без лишнего оптимизма —
                         только факты.
@@ -906,11 +1328,11 @@
                     </div>
                   </div>
                   <div
-                    class="relative z-[1] flex-1 bg-white border border-[rgba(145,143,148,0.3)] rounded-br-[24px] rounded-tr-[24px] flex flex-col gap-4 pl-16 pr-6 py-[23px] -mr-8"
+                    class="relative z-[1] w-full bg-white border border-[rgba(145,143,148,0.3)] rounded-bl-[24px] rounded-br-[24px] flex flex-col gap-4 pt-12 pb-5 px-5 h-[268px] md:h-[268px] lg:h-[216px]"
                   >
                     <div class="flex gap-1 items-center">
                       <div
-                        class="w-8 h-8 bg-[#ff6161] rounded-full flex items-center justify-center flex-shrink-0"
+                        class="w-8 h-8 bg-[#ff6161] rounded-full flex items-center justify-center shrink-0"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -937,9 +1359,7 @@
                       <p class="font-akrobat font-black text-[22px] leading-6">
                         Липовая доходность
                       </p>
-                      <p
-                        class="font-akrobat font-bold text-[18px] leading-[22px]"
-                      >
+                      <p class="font-akrobat font-bold text-[16px] leading-5">
                         Продавец обещает окупаемость 7 лет, но «забывает»
                         сказать, что арендатор съезжает через месяц, а налоги и
                         коммуналка съедят половину прибыли.
@@ -948,13 +1368,15 @@
                   </div>
                 </div>
 
-                <div class="service-row flex isolate items-start pr-8 relative">
+                <div
+                  class="service-row flex flex-col isolate items-start pb-8 w-[320px] md:w-[360px] shrink-0 snap-start lg:flex-row lg:pb-0 lg:w-auto lg:shrink lg:snap-align-none lg:pr-8"
+                >
                   <div
-                    class="relative z-[2] flex-1 bg-[#f4f2f7] rounded-[24px] flex flex-col gap-4 p-6 h-[216px] -mr-8"
+                    class="relative z-[2] w-full bg-[#f4f2f7] rounded-[24px] flex flex-col gap-4 p-5 -mb-8 h-[200px] md:h-[200px] lg:h-[216px]"
                   >
                     <div class="flex gap-1 items-center">
                       <div
-                        class="w-8 h-8 bg-[#4cc36e] rounded-full flex items-center justify-center flex-shrink-0"
+                        class="w-8 h-8 bg-[#4cc36e] rounded-full flex items-center justify-center shrink-0"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -981,9 +1403,7 @@
                       <p class="font-akrobat font-black text-[22px] leading-6">
                         Фокус на главном
                       </p>
-                      <p
-                        class="font-akrobat font-bold text-[18px] leading-[22px]"
-                      >
+                      <p class="font-akrobat font-bold text-[16px] leading-5">
                         Мы уже отфильтровали рынок для вас. Предлагаем только те
                         варианты, которые прошли наш внутренний контроль
                         качества.
@@ -991,11 +1411,11 @@
                     </div>
                   </div>
                   <div
-                    class="relative z-[1] flex-1 bg-white border border-[rgba(145,143,148,0.3)] rounded-br-[24px] rounded-tr-[24px] flex flex-col gap-4 pl-16 pr-6 py-[23px] -mr-8"
+                    class="relative z-[1] w-full bg-white border border-[rgba(145,143,148,0.3)] rounded-bl-[24px] rounded-br-[24px] flex flex-col gap-4 pt-12 pb-5 px-5 h-[268px] md:h-[268px] lg:h-[216px]"
                   >
                     <div class="flex gap-1 items-center">
                       <div
-                        class="w-8 h-8 bg-[#ff6161] rounded-full flex items-center justify-center flex-shrink-0"
+                        class="w-8 h-8 bg-[#ff6161] rounded-full flex items-center justify-center shrink-0"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -1022,9 +1442,7 @@
                       <p class="font-akrobat font-black text-[22px] leading-6">
                         Мимо лучших лотов
                       </p>
-                      <p
-                        class="font-akrobat font-bold text-[18px] leading-[22px]"
-                      >
+                      <p class="font-akrobat font-bold text-[16px] leading-5">
                         Десятки сайтов, сотни объявлений. Пока вы изучаете один
                         вариант, действительно выгодные лоты часто улетают к
                         тем, кто занимается этим профессионально.
@@ -1033,13 +1451,15 @@
                   </div>
                 </div>
 
-                <div class="service-row flex isolate items-start pr-8 relative">
+                <div
+                  class="service-row flex flex-col isolate items-start pb-8 w-[320px] md:w-[360px] shrink-0 snap-start lg:flex-row lg:pb-0 lg:w-auto lg:shrink lg:snap-align-none lg:pr-8"
+                >
                   <div
-                    class="relative z-[2] flex-1 bg-[#f4f2f7] rounded-[24px] flex flex-col gap-4 p-6 h-[238px] -mr-8"
+                    class="relative z-[2] w-full bg-[#f4f2f7] rounded-[24px] flex flex-col gap-4 p-5 -mb-8 h-[200px] md:h-[200px] lg:h-[238px]"
                   >
                     <div class="flex gap-1 items-center">
                       <div
-                        class="w-8 h-8 bg-[#4cc36e] rounded-full flex items-center justify-center flex-shrink-0"
+                        class="w-8 h-8 bg-[#4cc36e] rounded-full flex items-center justify-center shrink-0"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -1066,9 +1486,7 @@
                       <p class="font-akrobat font-black text-[22px] leading-6">
                         Управление под ключ
                       </p>
-                      <p
-                        class="font-akrobat font-bold text-[18px] leading-[22px]"
-                      >
+                      <p class="font-akrobat font-bold text-[16px] leading-5">
                         Мы не бросаем вас после сделки. Мы сами найдем
                         арендаторов, подпишем договоры и будем следить за
                         порядком. Вы только получаете отчеты и деньги на счет.
@@ -1076,11 +1494,11 @@
                     </div>
                   </div>
                   <div
-                    class="relative z-[1] flex-1 bg-white border border-[rgba(145,143,148,0.3)] rounded-br-[24px] rounded-tr-[24px] flex flex-col gap-4 pl-16 pr-6 py-[23px] -mr-8"
+                    class="relative z-[1] w-full bg-white border border-[rgba(145,143,148,0.3)] rounded-bl-[24px] rounded-br-[24px] flex flex-col gap-4 pt-12 pb-5 px-5 h-[268px] md:h-[268px] lg:h-[238px]"
                   >
                     <div class="flex gap-1 items-center">
                       <div
-                        class="w-8 h-8 bg-[#ff6161] rounded-full flex items-center justify-center flex-shrink-0"
+                        class="w-8 h-8 bg-[#ff6161] rounded-full flex items-center justify-center shrink-0"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -1107,9 +1525,7 @@
                       <p class="font-akrobat font-black text-[22px] leading-6">
                         Головная боль управления
                       </p>
-                      <p
-                        class="font-akrobat font-bold text-[18px] leading-[22px]"
-                      >
+                      <p class="font-akrobat font-bold text-[16px] leading-5">
                         После покупки начинается самое интересное — поиск
                         арендаторов и решение их бытовых проблем. Инвестиция
                         внезапно начинает требовать вашего внимания 24/7.
@@ -1120,15 +1536,15 @@
               </div>
             </div>
 
-            <div class="flex flex-col gap-4 pt-8">
+            <div class="flex flex-col gap-4 lg:pt-8">
               <div class="relative pb-[6px]">
                 <p
-                  class="font-unbounded font-bold text-[56px] leading-[44px] tracking-[-1.12px] uppercase text-[#223342] text-center opacity-20 num-features"
+                  class="font-unbounded font-bold text-[29px] leading-8 tracking-[-0.58px] md:text-[50px] md:leading-[48px] md:tracking-[-1px] lg:text-[56px] lg:leading-[44px] lg:tracking-[-1.12px] uppercase text-[#223342] text-center opacity-20 num-features"
                 >
                   Собственникам
                 </p>
                 <div
-                  class="relative h-[320px] rounded-[24px] overflow-hidden flex items-end p-6 -mt-[6px]"
+                  class="relative h-[320px] rounded-[24px] overflow-hidden flex items-end p-4 -mt-[10px] lg:-mt-[6px] lg:p-6"
                 >
                   <img
                     src="./assets/images/sobstvennikam-img.png"
@@ -1139,15 +1555,15 @@
                     class="absolute inset-0 bg-[rgba(34,51,66,0.2)] rounded-[24px]"
                   ></div>
                   <div
-                    class="relative z-10 bg-white flex-1 flex flex-col gap-2 pl-6 pr-20 py-6 rounded-[24px] text-[#223342]"
+                    class="relative z-10 bg-white flex-1 flex flex-col gap-1.5 p-4 rounded-[24px] text-[#223342] lg:pl-6 lg:pr-20 lg:py-6 lg:gap-2"
                   >
                     <p
-                      class="font-unbounded font-bold text-[16px] leading-6 tracking-[-0.32px] uppercase num-features"
+                      class="font-unbounded font-bold text-[14px] leading-[20px] tracking-[-0.32px] uppercase num-features lg:text-[16px] lg:leading-6"
                     >
                       Продадим ваш объект, даже если он кажется «сложным».
                     </p>
                     <p
-                      class="font-akrobat font-semibold text-[18px] leading-[22px] opacity-60"
+                      class="font-akrobat font-semibold text-[16px] leading-[20px] opacity-60 lg:text-[18px] lg:leading-[22px]"
                     >
                       Если нужно — сделаем ремонт, упакуем документы и найдем
                       надежного арендатора. Вы просто получаете прибыль, мы —
@@ -1157,15 +1573,18 @@
                 </div>
               </div>
 
-              <div class="flex flex-col gap-3">
-                <!-- service-row -->
-                <div class="service-row flex isolate items-start pr-8 relative">
+              <div
+                class="service-rows-scroll flex gap-2 pb-2 items-start overflow-x-auto snap-x snap-mandatory lg:flex-col lg:overflow-x-visible lg:snap-none lg:gap-3 lg:pb-0"
+              >
+                <div
+                  class="service-row flex flex-col isolate items-start pb-8 w-[320px] md:w-[360px] shrink-0 snap-start lg:flex-row lg:pb-0 lg:w-auto lg:shrink lg:snap-align-none lg:pr-8"
+                >
                   <div
-                    class="relative z-[2] flex-1 bg-[#f4f2f7] rounded-[24px] flex flex-col gap-4 p-6 h-[216px] -mr-8"
+                    class="relative z-[2] w-full bg-[#f4f2f7] rounded-[24px] flex flex-col gap-4 p-5 -mb-8 h-[200px] md:h-[200px] lg:h-[216px]"
                   >
                     <div class="flex gap-1 items-center">
                       <div
-                        class="w-8 h-8 bg-[#4cc36e] rounded-full flex items-center justify-center flex-shrink-0"
+                        class="w-8 h-8 bg-[#4cc36e] rounded-full flex items-center justify-center shrink-0"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -1190,22 +1609,21 @@
                     </div>
                     <div class="flex flex-col gap-2 text-[#223342]">
                       <p class="font-akrobat font-black text-[22px] leading-6">
-                        Технический аудит
+                        Точная оценка
                       </p>
-                      <p
-                        class="font-akrobat font-bold text-[18px] leading-[22px]"
-                      >
-                        Мы проверяем каждый кВт и каждую запятую в выписке ЕГРН.
-                        Вы покупаете чистый объект без «сюрпризов».
+                      <p class="font-akrobat font-bold text-[16px] leading-5">
+                        Мы не гадаем, а анализируем текущие сделки. Помогаем
+                        найти ту самую «золотую середину» в цене, чтобы объект
+                        не стоял, а работал.
                       </p>
                     </div>
                   </div>
                   <div
-                    class="relative z-[1] flex-1 bg-white border border-[rgba(145,143,148,0.3)] rounded-br-[24px] rounded-tr-[24px] flex flex-col gap-4 pl-16 pr-6 py-[23px] -mr-8"
+                    class="relative z-[1] w-full bg-white border border-[rgba(145,143,148,0.3)] rounded-bl-[24px] rounded-br-[24px] flex flex-col gap-4 pt-12 pb-5 px-5 h-[268px] md:h-[268px] lg:h-[216px]"
                   >
                     <div class="flex gap-1 items-center">
                       <div
-                        class="w-8 h-8 bg-[#ff6161] rounded-full flex items-center justify-center flex-shrink-0"
+                        class="w-8 h-8 bg-[#ff6161] rounded-full flex items-center justify-center shrink-0"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -1230,27 +1648,26 @@
                     </div>
                     <div class="flex flex-col gap-2 text-[#223342]">
                       <p class="font-akrobat font-black text-[22px] leading-6">
-                        Неожиданные сюрпризы
+                        Оценка объекта
                       </p>
-                      <p
-                        class="font-akrobat font-bold text-[18px] leading-[22px]"
-                      >
-                        Вы покупаете помещение, а через месяц выясняется, что
-                        мощности электричества не хватает, а по документам это
-                        вообще жилой фонд.
+                      <p class="font-akrobat font-bold text-[16px] leading-5">
+                        Установка цены «на глаз» или по верху рынка приводит к
+                        тому, что объект «зависает» на длительное время, он
+                        становится не интересным для рынка.
                       </p>
                     </div>
                   </div>
                 </div>
 
-                <!-- service-row -->
-                <div class="service-row flex isolate items-start pr-8 relative">
+                <div
+                  class="service-row flex flex-col isolate items-start pb-8 w-[320px] md:w-[360px] shrink-0 snap-start lg:flex-row lg:pb-0 lg:w-auto lg:shrink lg:snap-align-none lg:pr-8"
+                >
                   <div
-                    class="relative z-[2] flex-1 bg-[#f4f2f7] rounded-[24px] flex flex-col gap-4 p-6 h-[216px] -mr-8"
+                    class="relative z-[2] w-full bg-[#f4f2f7] rounded-[24px] flex flex-col gap-4 p-5 -mb-8 h-[200px] md:h-[200px] lg:h-[216px]"
                   >
                     <div class="flex gap-1 items-center">
                       <div
-                        class="w-8 h-8 bg-[#4cc36e] rounded-full flex items-center justify-center flex-shrink-0"
+                        class="w-8 h-8 bg-[#4cc36e] rounded-full flex items-center justify-center shrink-0"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -1275,23 +1692,21 @@
                     </div>
                     <div class="flex flex-col gap-2 text-[#223342]">
                       <p class="font-akrobat font-black text-[22px] leading-6">
-                        Точный расчет
+                        Юридический щит
                       </p>
-                      <p
-                        class="font-akrobat font-bold text-[18px] leading-[22px]"
-                      >
-                        Мы составляем прозрачную финансовую модель. Вы заранее
-                        понимаете все цифры и сроки, без лишнего оптимизма —
-                        только факты.
+                      <p class="font-akrobat font-bold text-[16px] leading-5">
+                        Наши юристы готовят сделку «под ключ». Вы просто
+                        приходите на подписание, зная, что ваши интересы
+                        защищены на 100%.
                       </p>
                     </div>
                   </div>
                   <div
-                    class="relative z-[1] flex-1 bg-white border border-[rgba(145,143,148,0.3)] rounded-br-[24px] rounded-tr-[24px] flex flex-col gap-4 pl-16 pr-6 py-[23px] -mr-8"
+                    class="relative z-[1] w-full bg-white border border-[rgba(145,143,148,0.3)] rounded-bl-[24px] rounded-br-[24px] flex flex-col gap-4 pt-12 pb-5 px-5 h-[268px] md:h-[268px] lg:h-[216px]"
                   >
                     <div class="flex gap-1 items-center">
                       <div
-                        class="w-8 h-8 bg-[#ff6161] rounded-full flex items-center justify-center flex-shrink-0"
+                        class="w-8 h-8 bg-[#ff6161] rounded-full flex items-center justify-center shrink-0"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -1316,27 +1731,26 @@
                     </div>
                     <div class="flex flex-col gap-2 text-[#223342]">
                       <p class="font-akrobat font-black text-[22px] leading-6">
-                        Липовая доходность
+                        Бумажные хлопоты
                       </p>
-                      <p
-                        class="font-akrobat font-bold text-[18px] leading-[22px]"
-                      >
-                        Продавец обещает окупаемость 7 лет, но «забывает»
-                        сказать, что арендатор съезжает через месяц, а налоги и
-                        коммуналка съедят половину прибыли.
+                      <p class="font-akrobat font-bold text-[16px] leading-5">
+                        Подготовка договора и сбор справок превращаются в
+                        неувлекательный квест. Один неверный пункт в договоре —
+                        и сделка разваливается в кабинете нотариуса.
                       </p>
                     </div>
                   </div>
                 </div>
 
-                <!-- service-row -->
-                <div class="service-row flex isolate items-start pr-8 relative">
+                <div
+                  class="service-row flex flex-col isolate items-start pb-8 w-[320px] md:w-[360px] shrink-0 snap-start lg:flex-row lg:pb-0 lg:w-auto lg:shrink lg:snap-align-none lg:pr-8"
+                >
                   <div
-                    class="relative z-[2] flex-1 bg-[#f4f2f7] rounded-[24px] flex flex-col gap-4 p-6 h-[216px] -mr-8"
+                    class="relative z-[2] w-full bg-[#f4f2f7] rounded-[24px] flex flex-col gap-4 p-5 -mb-8 h-[200px] md:h-[200px] lg:h-[216px]"
                   >
                     <div class="flex gap-1 items-center">
                       <div
-                        class="w-8 h-8 bg-[#4cc36e] rounded-full flex items-center justify-center flex-shrink-0"
+                        class="w-8 h-8 bg-[#4cc36e] rounded-full flex items-center justify-center shrink-0"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -1361,23 +1775,20 @@
                     </div>
                     <div class="flex flex-col gap-2 text-[#223342]">
                       <p class="font-akrobat font-black text-[22px] leading-6">
-                        Фокус на главном
+                        Бережем ваше время
                       </p>
-                      <p
-                        class="font-akrobat font-bold text-[18px] leading-[22px]"
-                      >
-                        Мы уже отфильтровали рынок для вас. Предлагаем только те
-                        варианты, которые прошли наш внутренний контроль
-                        качества.
+                      <p class="font-akrobat font-bold text-[16px] leading-5">
+                        Мы берем на себя все переговоры и показы. К вам приходим
+                        уже с готовым предложением от серьезного покупателя.
                       </p>
                     </div>
                   </div>
                   <div
-                    class="relative z-[1] flex-1 bg-white border border-[rgba(145,143,148,0.3)] rounded-br-[24px] rounded-tr-[24px] flex flex-col gap-4 pl-16 pr-6 py-[23px] -mr-8"
+                    class="relative z-[1] w-full bg-white border border-[rgba(145,143,148,0.3)] rounded-bl-[24px] rounded-br-[24px] flex flex-col gap-4 pt-12 pb-5 px-5 h-[268px] md:h-[268px] lg:h-[216px]"
                   >
                     <div class="flex gap-1 items-center">
                       <div
-                        class="w-8 h-8 bg-[#ff6161] rounded-full flex items-center justify-center flex-shrink-0"
+                        class="w-8 h-8 bg-[#ff6161] rounded-full flex items-center justify-center shrink-0"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -1402,27 +1813,25 @@
                     </div>
                     <div class="flex flex-col gap-2 text-[#223342]">
                       <p class="font-akrobat font-black text-[22px] leading-6">
-                        Мимо лучших лотов
+                        Пустые звонки
                       </p>
-                      <p
-                        class="font-akrobat font-bold text-[18px] leading-[22px]"
-                      >
-                        Десятки сайтов, сотни объявлений. Пока вы изучаете один
-                        вариант, действительно выгодные лоты часто улетают к
-                        тем, кто занимается этим профессионально.
+                      <p class="font-akrobat font-bold text-[16px] leading-5">
+                        Ваш телефон разрывается от спама. Приходится тратить
+                        выходные на показы людям, у которых нет денег.
                       </p>
                     </div>
                   </div>
                 </div>
 
-                <!-- service-row -->
-                <div class="service-row flex isolate items-start pr-8 relative">
+                <div
+                  class="service-row flex flex-col isolate items-start pb-8 w-[320px] md:w-[360px] shrink-0 snap-start lg:flex-row lg:pb-0 lg:w-auto lg:shrink lg:snap-align-none lg:pr-8"
+                >
                   <div
-                    class="relative z-[2] flex-1 bg-[#f4f2f7] rounded-[24px] flex flex-col gap-4 p-6 h-[238px] -mr-8"
+                    class="relative z-[2] w-full bg-[#f4f2f7] rounded-[24px] flex flex-col gap-4 p-5 -mb-8 h-[200px] md:h-[200px] lg:h-[238px]"
                   >
                     <div class="flex gap-1 items-center">
                       <div
-                        class="w-8 h-8 bg-[#4cc36e] rounded-full flex items-center justify-center flex-shrink-0"
+                        class="w-8 h-8 bg-[#4cc36e] rounded-full flex items-center justify-center shrink-0"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -1447,23 +1856,21 @@
                     </div>
                     <div class="flex flex-col gap-2 text-[#223342]">
                       <p class="font-akrobat font-black text-[22px] leading-6">
-                        Управление под ключ
+                        Упаковка объекта
                       </p>
-                      <p
-                        class="font-akrobat font-bold text-[18px] leading-[22px]"
-                      >
-                        Мы не бросаем вас после сделки. Мы сами найдем
-                        арендаторов, подпишем договоры и будем следить за
-                        порядком. Вы только получаете отчеты и деньги на счет.
+                      <p class="font-akrobat font-bold text-[16px] leading-5">
+                        Подскажем, как подготовить объект, чтобы он влюбил в
+                        себя с первого взгляда. Если нужно — поможем с
+                        косметическим ремонтом или клинингом.
                       </p>
                     </div>
                   </div>
                   <div
-                    class="relative z-[1] flex-1 bg-white border border-[rgba(145,143,148,0.3)] rounded-br-[24px] rounded-tr-[24px] flex flex-col gap-4 pl-16 pr-6 py-[23px] -mr-8"
+                    class="relative z-[1] w-full bg-white border border-[rgba(145,143,148,0.3)] rounded-bl-[24px] rounded-br-[24px] flex flex-col gap-4 pt-12 pb-5 px-5 h-[268px] md:h-[268px] lg:h-[238px]"
                   >
                     <div class="flex gap-1 items-center">
                       <div
-                        class="w-8 h-8 bg-[#ff6161] rounded-full flex items-center justify-center flex-shrink-0"
+                        class="w-8 h-8 bg-[#ff6161] rounded-full flex items-center justify-center shrink-0"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -1488,14 +1895,12 @@
                     </div>
                     <div class="flex flex-col gap-2 text-[#223342]">
                       <p class="font-akrobat font-black text-[22px] leading-6">
-                        Головная боль управления
+                        Предпродажный хаос
                       </p>
-                      <p
-                        class="font-akrobat font-bold text-[18px] leading-[22px]"
-                      >
-                        После покупки начинается самое интересное — поиск
-                        арендаторов и решение их бытовых проблем. Инвестиция
-                        внезапно начинает требовать вашего внимания 24/7.
+                      <p class="font-akrobat font-bold text-[16px] leading-5">
+                        Сложно объективно взглянуть на свой объект. Иногда пара
+                        мелочей в отделке могут добавить к цене весомую сумму.
+                        Покупатель видит это и начинает агрессивно сбивать цену.
                       </p>
                     </div>
                   </div>
@@ -1506,175 +1911,233 @@
         </div>
       </section>
 
-      <!-- УСПЕШНЫЕ КЕЙСЫ -->
       <section
         id="cases"
-        class="mt-40 flex flex-col gap-14 items-center"
+        class="mt-20 lg:mt-40 flex flex-col gap-8 lg:gap-14 items-center"
         aria-label="Кейсы"
       >
         <div class="flex flex-col items-center text-center js-animate anim-up">
           <h2
-            class="font-unbounded font-bold text-[32px] leading-[38px] uppercase text-[#223342] max-w-[589px]"
+            class="font-unbounded font-bold text-[24px] leading-[28px] uppercase text-[#223342] max-w-[589px] lg:text-[32px] lg:leading-[38px]"
           >
             Истории, которыми мы гордимся
           </h2>
         </div>
 
-        <div class="flex gap-4 h-[560px] w-full">
-          <article
-            class="case-card flex-1 h-full flex flex-col justify-between p-6 relative rounded-[24px] overflow-hidden js-animate"
+        <div class="relative w-full">
+          <button
+            class="cases-prev nav-arrow absolute left-[-16px] top-1/2 -translate-y-1/2 z-10 w-14 h-14 rounded-full bg-[rgba(240,240,240,0.15)] flex items-center justify-center"
+            aria-label="Предыдущий кейс"
           >
-            <img
-              src="./assets/images/cases-1.png"
-              alt="Земля на миллиард"
-              class="absolute inset-0 w-full h-full object-cover"
-            />
-            <div
-              class="absolute inset-0 rounded-[24px]"
-              style="
-                background-image:
-                  linear-gradient(
-                    180deg,
-                    rgba(32, 32, 32, 0) 19%,
-                    rgba(32, 32, 32, 0.7) 100%
-                  ),
-                  linear-gradient(
-                    180deg,
-                    rgba(32, 32, 32, 0) 38%,
-                    rgba(32, 32, 32, 0.7) 100%
-                  );
-              "
-            ></div>
-            <div class="relative z-10 flex flex-col h-full justify-between">
-              <div class="bg-[#fdfdfd] px-2 py-1 rounded-[6px] w-fit">
-                <span
-                  class="font-akrobat font-semibold text-[14px] leading-[18px] text-[#223342] whitespace-nowrap"
-                  >Кейс 1</span
-                >
-              </div>
-              <div class="flex flex-col gap-4">
-                <h3
-                  class="font-unbounded font-bold text-[26px] leading-8 text-white uppercase"
-                >
-                  Земля<br />на миллиард
-                </h3>
-                <p
-                  class="font-akrobat font-bold text-[18px] leading-[22px] text-[#fdfdfd]"
-                >
-                  Продали огромный участок за 1 000 000 000 рублей. Это был год
-                  кропотливой работы: мы не только нашли покупателя, но и
-                  организовали сложную схему бартера. Часть оплаты клиент
-                  получил квартирами, продажу которых мы также полностью взяли
-                  на себя.
-                </p>
-              </div>
-            </div>
-          </article>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M15 18L9 12L15 6"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
 
-          <article
-            class="case-card flex-1 h-full flex flex-col justify-between p-6 relative rounded-[24px] overflow-hidden js-animate anim-delay-1"
-          >
-            <img
-              src="./assets/images/cases-2.png"
-              alt="ГАБ у Новой Голландии"
-              class="absolute inset-0 w-full h-full object-cover"
-            />
-            <div
-              class="absolute inset-0 rounded-[24px]"
-              style="
-                background-image:
-                  linear-gradient(
-                    180deg,
-                    rgba(32, 32, 32, 0) 19%,
-                    rgba(32, 32, 32, 0.7) 100%
-                  ),
-                  linear-gradient(
-                    180deg,
-                    rgba(32, 32, 32, 0) 38%,
-                    rgba(32, 32, 32, 0.7) 100%
-                  );
-              "
-            ></div>
-            <div class="relative z-10 flex flex-col h-full justify-between">
-              <div class="bg-[#fdfdfd] px-2 py-1 rounded-[6px] w-fit">
-                <span
-                  class="font-akrobat font-semibold text-[14px] leading-[18px] text-[#223342] whitespace-nowrap"
-                  >Кейс 2</span
+          <div class="swiper cases-swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <article
+                  class="case-card h-[480px] lg:h-[560px] flex flex-col justify-between p-6 relative rounded-[24px] overflow-hidden"
                 >
+                  <img
+                    src="./assets/images/cases-1.png"
+                    alt="Земля на миллиард"
+                    class="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div
+                    class="absolute inset-0 rounded-[24px]"
+                    style="
+                      background-image:
+                        linear-gradient(
+                          180deg,
+                          rgba(32, 32, 32, 0) 19%,
+                          rgba(32, 32, 32, 0.7) 100%
+                        ),
+                        linear-gradient(
+                          180deg,
+                          rgba(32, 32, 32, 0) 38%,
+                          rgba(32, 32, 32, 0.7) 100%
+                        );
+                    "
+                  ></div>
+                  <div
+                    class="relative z-10 flex flex-col h-full justify-between"
+                  >
+                    <div class="bg-[#fdfdfd] px-2 py-1 rounded-[6px] w-fit">
+                      <span
+                        class="font-akrobat font-semibold text-[14px] leading-[18px] text-[#223342] whitespace-nowrap"
+                        >Кейс 1</span
+                      >
+                    </div>
+                    <div class="flex flex-col gap-2 lg:gap-4">
+                      <h3
+                        class="font-unbounded font-bold text-[18px] leading-6 text-white uppercase lg:text-[26px] lg:leading-8"
+                      >
+                        Земля<br />на миллиард
+                      </h3>
+                      <p
+                        class="font-akrobat font-bold text-[16px] leading-5 text-[#fdfdfd] lg:text-[18px] lg:leading-[22px]"
+                      >
+                        Продали огромный участок за 1 000 000 000 рублей. Это
+                        был год кропотливой работы: мы не только нашли
+                        покупателя, но и организовали сложную схему бартера.
+                        Часть оплаты клиент получил квартирами, продажу которых
+                        мы также полностью взяли на себя.
+                      </p>
+                    </div>
+                  </div>
+                </article>
               </div>
-              <div class="flex flex-col gap-4">
-                <h3
-                  class="font-unbounded font-bold text-[26px] leading-8 text-white uppercase"
-                >
-                  ГАБ у Новой Голландии
-                </h3>
-                <p
-                  class="font-akrobat font-bold text-[18px] leading-[22px] text-[#fdfdfd]"
-                >
-                  Создали готовый арендный бизнес на 99 м² «под ключ». Нашли
-                  помещение в центре Санкт-Петербурга, сделали ремонт, подобрали
-                  арендатора на долгий срок и продали объект инвестору как
-                  стабильный и понятный финансовый инструмент.
-                </p>
-              </div>
-            </div>
-          </article>
 
-          <article
-            class="case-card flex-1 h-full flex flex-col justify-between p-6 relative rounded-[24px] overflow-hidden js-animate anim-delay-2"
-          >
-            <img
-              src="./assets/images/cases-3.png"
-              alt="Полевые работы в ЛО"
-              class="absolute inset-0 w-full h-full object-cover"
-            />
-            <div
-              class="absolute inset-0 rounded-[24px]"
-              style="
-                background-image:
-                  linear-gradient(
-                    180deg,
-                    rgba(32, 32, 32, 0) 19%,
-                    rgba(32, 32, 32, 0.7) 100%
-                  ),
-                  linear-gradient(
-                    180deg,
-                    rgba(32, 32, 32, 0) 38%,
-                    rgba(32, 32, 32, 0.7) 100%
-                  );
-              "
-            ></div>
-            <div class="relative z-10 flex flex-col h-full justify-between">
-              <div class="bg-[#fdfdfd] px-2 py-1 rounded-[6px] w-fit">
-                <span
-                  class="font-akrobat font-semibold text-[14px] leading-[18px] text-[#223342] whitespace-nowrap"
-                  >Кейс 3</span
+              <div class="swiper-slide">
+                <article
+                  class="case-card h-[480px] lg:h-[560px] flex flex-col justify-between p-6 relative rounded-[24px] overflow-hidden"
                 >
+                  <img
+                    src="./assets/images/cases-2.png"
+                    alt="ГАБ у Новой Голландии"
+                    class="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div
+                    class="absolute inset-0 rounded-[24px]"
+                    style="
+                      background-image:
+                        linear-gradient(
+                          180deg,
+                          rgba(32, 32, 32, 0) 19%,
+                          rgba(32, 32, 32, 0.7) 100%
+                        ),
+                        linear-gradient(
+                          180deg,
+                          rgba(32, 32, 32, 0) 38%,
+                          rgba(32, 32, 32, 0.7) 100%
+                        );
+                    "
+                  ></div>
+                  <div
+                    class="relative z-10 flex flex-col h-full justify-between"
+                  >
+                    <div class="bg-[#fdfdfd] px-2 py-1 rounded-[6px] w-fit">
+                      <span
+                        class="font-akrobat font-semibold text-[14px] leading-[18px] text-[#223342] whitespace-nowrap"
+                        >Кейс 2</span
+                      >
+                    </div>
+                    <div class="flex flex-col gap-2 lg:gap-4">
+                      <h3
+                        class="font-unbounded font-bold text-[18px] leading-6 text-white uppercase lg:text-[26px] lg:leading-8"
+                      >
+                        ГАБ у Новой Голландии
+                      </h3>
+                      <p
+                        class="font-akrobat font-bold text-[16px] leading-5 text-[#fdfdfd] lg:text-[18px] lg:leading-[22px]"
+                      >
+                        Создали готовый арендный бизнес на 99 м² «под ключ».
+                        Нашли помещение в центре Санкт-Петербурга, сделали
+                        ремонт, подобрали арендатора на долгий срок и продали
+                        объект инвестору как стабильный и понятный финансовый
+                        инструмент.
+                      </p>
+                    </div>
+                  </div>
+                </article>
               </div>
-              <div class="flex flex-col gap-4">
-                <h3
-                  class="font-unbounded font-bold text-[26px] leading-8 text-white uppercase"
+
+              <div class="swiper-slide">
+                <article
+                  class="case-card h-[480px] lg:h-[560px] flex flex-col justify-between p-6 relative rounded-[24px] overflow-hidden"
                 >
-                  Полевые<br />работы в ЛО
-                </h3>
-                <p
-                  class="font-akrobat font-bold text-[18px] leading-[22px] text-[#fdfdfd]"
-                >
-                  Подготовили к продаже участок 5.86 Га. Организовали дренаж,
-                  ливневку, провели свет и выровняли территорию. В итоге продали
-                  не «проблемную землю», а готовую площадку под застройку.
-                </p>
+                  <img
+                    src="./assets/images/cases-3.png"
+                    alt="Полевые работы в ЛО"
+                    class="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div
+                    class="absolute inset-0 rounded-[24px]"
+                    style="
+                      background-image:
+                        linear-gradient(
+                          180deg,
+                          rgba(32, 32, 32, 0) 19%,
+                          rgba(32, 32, 32, 0.7) 100%
+                        ),
+                        linear-gradient(
+                          180deg,
+                          rgba(32, 32, 32, 0) 38%,
+                          rgba(32, 32, 32, 0.7) 100%
+                        );
+                    "
+                  ></div>
+                  <div
+                    class="relative z-10 flex flex-col h-full justify-between"
+                  >
+                    <div class="bg-[#fdfdfd] px-2 py-1 rounded-[6px] w-fit">
+                      <span
+                        class="font-akrobat font-semibold text-[14px] leading-[18px] text-[#223342] whitespace-nowrap"
+                        >Кейс 3</span
+                      >
+                    </div>
+                    <div class="flex flex-col gap-2 lg:gap-4">
+                      <h3
+                        class="font-unbounded font-bold text-[18px] leading-6 text-white uppercase lg:text-[26px] lg:leading-8"
+                      >
+                        Полевые<br />работы в ЛО
+                      </h3>
+                      <p
+                        class="font-akrobat font-bold text-[16px] leading-5 text-[#fdfdfd] lg:text-[18px] lg:leading-[22px]"
+                      >
+                        Подготовили к продаже участок 5.86 Га. Организовали
+                        дренаж, ливневку, провели свет и выровняли территорию. В
+                        итоге продали не «проблемную землю», а готовую площадку
+                        под застройку.
+                      </p>
+                    </div>
+                  </div>
+                </article>
               </div>
             </div>
-          </article>
+          </div>
+
+          <button
+            class="cases-next nav-arrow absolute right-[-16px] top-1/2 -translate-y-1/2 z-10 w-14 h-14 rounded-full bg-[rgba(240,240,240,0.15)] flex items-center justify-center"
+            aria-label="Следующий кейс"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M9 18L15 12L9 6"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
         </div>
       </section>
 
-      <!-- ТОРГИ -->
-      <section id="services" class="mt-40" aria-label="Торги">
-        <div class="flex gap-8 items-start">
+      <section id="services" class="mt-20 lg:mt-40" aria-label="Торги">
+        <div class="flex flex-col gap-8 lg:flex-row lg:items-start">
           <div
-            class="w-[664px] flex-shrink-0 flex flex-col gap-8 js-animate anim-up"
+            class="w-full flex flex-col gap-8 js-animate anim-up text-center lg:text-left lg:w-[664px] lg:flex-shrink-0"
           >
             <div class="flex flex-col gap-4">
               <p
@@ -1702,10 +2165,10 @@
           </div>
 
           <div
-            class="flex-1 h-[400px] bg-[#f4f2f7] rounded-[24px] overflow-hidden p-6 relative flex flex-col justify-between"
+            class="w-full h-auto bg-[#f4f2f7] rounded-[24px] overflow-hidden p-6 relative flex flex-col justify-between lg:flex-1 lg:h-[400px]"
           >
             <div
-              class="bg-white flex gap-8 h-[134px] p-6 rounded-[24px] items-start shadow-[0px_4px_36px_0px_rgba(129,52,129,0.1)]"
+              class="bg-white flex gap-8 h-auto p-6 rounded-[24px] items-center shadow-[0px_4px_36px_0px_rgba(129,52,129,0.1)] lg:h-[134px] lg:items-start"
             >
               <div
                 class="flex-1 flex flex-col h-full justify-between text-[#223342]"
@@ -1741,7 +2204,7 @@
             </div>
 
             <div
-              class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 items-end"
+              class="hidden lg:flex absolute bottom-6 left-1/2 -translate-x-1/2 gap-2 items-end"
             >
               <div
                 class="bg-white rounded-tl-[16px] rounded-tr-[16px] rounded-bl-[8px] rounded-br-[8px] w-[164px] flex flex-col gap-2 pt-1 px-1 pb-2 relative flex-shrink-0"
@@ -2113,10 +2576,9 @@
         </div>
       </section>
 
-      <!-- МЫ НЕ СКРЫВАЕМСЯ ЗА ЛОГОТИПОМ -->
       <section
         id="team"
-        class="mt-40 flex flex-col gap-14 items-center"
+        class="mt-20 lg:mt-40 flex flex-col gap-8 lg:gap-14 items-center"
         aria-label="Команда"
       >
         <div
@@ -2219,7 +2681,6 @@
                 </div>
               </div>
 
-              <!-- team-card -->
               <div class="swiper-slide">
                 <div class="flex flex-col gap-4">
                   <div
@@ -2273,7 +2734,6 @@
                 </div>
               </div>
 
-              <!-- team-card -->
               <div class="swiper-slide">
                 <div class="flex flex-col gap-4">
                   <div
@@ -2327,7 +2787,6 @@
                 </div>
               </div>
 
-              <!-- team-card -->
               <div class="swiper-slide">
                 <div class="flex flex-col gap-4">
                   <div
@@ -2381,7 +2840,112 @@
                 </div>
               </div>
 
-              <!-- team-card -->
+              <div class="swiper-slide">
+                <div class="flex flex-col gap-4">
+                  <div
+                    class="relative h-[400px] rounded-[24px] overflow-hidden"
+                    style="
+                      background:
+                        linear-gradient(
+                          180deg,
+                          rgba(129, 52, 129, 0.08) 0%,
+                          rgba(129, 52, 129, 0.4) 100%
+                        ),
+                        #fff;
+                    "
+                  >
+                    <img
+                      src="./assets/images/team-logo.png"
+                      alt=""
+                      class="absolute pointer-events-none"
+                      style="
+                        width: 42%;
+                        height: 46.62%;
+                        left: 50%;
+                        top: 8.16%;
+                        object-fit: contain;
+                      "
+                    />
+                    <img
+                      src="./assets/images/team-1.png"
+                      alt=""
+                      class="absolute left-0 pointer-events-none"
+                      style="
+                        width: 100%;
+                        height: 122.98%;
+                        top: -5.49%;
+                        object-fit: cover;
+                      "
+                    />
+                  </div>
+                  <div class="flex flex-col gap-1 text-[#223342]">
+                    <p
+                      class="font-unbounded font-bold text-[16px] leading-6 tracking-[-0.32px] uppercase num-features"
+                    >
+                      Леонардо Ди Каприо
+                    </p>
+                    <p
+                      class="font-akrobat font-bold text-[18px] leading-[22px]"
+                    >
+                      Менеджер
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="flex flex-col gap-4">
+                  <div
+                    class="relative h-[400px] rounded-[24px] overflow-hidden"
+                    style="
+                      background:
+                        linear-gradient(
+                          180deg,
+                          rgba(129, 52, 129, 0.08) 0%,
+                          rgba(129, 52, 129, 0.4) 100%
+                        ),
+                        #fff;
+                    "
+                  >
+                    <img
+                      src="./assets/images/team-logo.png"
+                      alt=""
+                      class="absolute pointer-events-none"
+                      style="
+                        width: 42%;
+                        height: 46.62%;
+                        left: 50%;
+                        top: 8.16%;
+                        object-fit: contain;
+                      "
+                    />
+                    <img
+                      src="./assets/images/team-2.png"
+                      alt=""
+                      class="absolute left-0 pointer-events-none"
+                      style="
+                        width: 100%;
+                        height: 123%;
+                        top: -5.5%;
+                        object-fit: cover;
+                      "
+                    />
+                  </div>
+                  <div class="flex flex-col gap-1 text-[#223342]">
+                    <p
+                      class="font-unbounded font-bold text-[16px] leading-6 tracking-[-0.32px] uppercase num-features"
+                    >
+                      Леонардо Ди Каприо
+                    </p>
+                    <p
+                      class="font-akrobat font-bold text-[18px] leading-[22px]"
+                    >
+                      Менеджер
+                    </p>
+                  </div>
+                </div>
+              </div>
+
               <div class="swiper-slide">
                 <div class="flex flex-col gap-4">
                   <div
@@ -2434,17 +2998,117 @@
                   </div>
                 </div>
               </div>
+
+              <div class="swiper-slide">
+                <div class="flex flex-col gap-4">
+                  <div
+                    class="relative h-[400px] rounded-[24px] overflow-hidden"
+                    style="
+                      background:
+                        linear-gradient(
+                          180deg,
+                          rgba(129, 52, 129, 0.08) 0%,
+                          rgba(129, 52, 129, 0.4) 100%
+                        ),
+                        #fff;
+                    "
+                  >
+                    <img
+                      src="./assets/images/team-logo.png"
+                      alt=""
+                      class="absolute pointer-events-none"
+                      style="
+                        width: 42%;
+                        height: 46.62%;
+                        left: 50%;
+                        top: 8.16%;
+                        object-fit: contain;
+                      "
+                    />
+                    <img
+                      src="./assets/images/team-4.png"
+                      alt=""
+                      class="absolute left-0 pointer-events-none"
+                      style="
+                        width: 100%;
+                        height: 122.98%;
+                        top: -5.49%;
+                        object-fit: cover;
+                      "
+                    />
+                  </div>
+                  <div class="flex flex-col gap-1 text-[#223342]">
+                    <p
+                      class="font-unbounded font-bold text-[16px] leading-6 tracking-[-0.32px] uppercase num-features"
+                    >
+                      Леонардо Ди Каприо
+                    </p>
+                    <p
+                      class="font-akrobat font-bold text-[18px] leading-[22px]"
+                    >
+                      Менеджер
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- КАК ПРОВЕРИТЬ КОММЕРЧЕСКОЕ ПОМЕЩЕНИЕ -->
-      <section class="mt-40 relative pb-[100px]" aria-label="Чек-лист">
+      <section
+        class="mt-20 lg:mt-40 relative lg:pb-[100px]"
+        aria-label="Чек-лист"
+      >
         <div
-          class="bg-[#f4f2f7] rounded-[24px] h-[400px] p-10 relative flex gap-4 items-start js-animate anim-up"
+          class="bg-[#f4f2f7] rounded-[24px] h-auto p-6 relative flex flex-col gap-6 js-animate anim-up md:p-8 lg:flex-row lg:items-start lg:gap-4 lg:h-[400px] lg:p-10"
         >
-          <div class="flex flex-col justify-between h-full">
+          <div class="block lg:hidden relative w-full" style="height: 280px">
+            <div
+              style="
+                position: absolute;
+                left: 4%;
+                top: 0;
+                width: 52%;
+                transform: rotate(-4.47deg);
+                z-index: 2;
+                border-radius: 6px;
+                overflow: hidden;
+                border: 1px solid rgba(0, 0, 0, 0.05);
+                box-shadow:
+                  -10px -8px 64px -40px rgba(34, 51, 66, 0.35),
+                  10px 10px 80px -50px rgba(34, 51, 66, 0.8);
+              "
+            >
+              <img
+                src="./assets/images/doc-1.png"
+                alt=""
+                style="width: 100%; display: block"
+              />
+            </div>
+            <div
+              style="
+                position: absolute;
+                right: 2%;
+                top: 24px;
+                width: 52%;
+                transform: rotate(8.03deg);
+                z-index: 1;
+                border-radius: 6px;
+                overflow: hidden;
+                border: 1px solid rgba(0, 0, 0, 0.05);
+                box-shadow: 0px 24px 64px -48px #223342;
+              "
+            >
+              <img
+                src="./assets/images/doc-2.png"
+                alt=""
+                style="width: 100%; display: block"
+              />
+            </div>
+          </div>
+
+          <div class="flex flex-col justify-between h-auto lg:h-full">
             <div class="flex flex-col gap-4 text-[#223342]">
               <h2
                 class="font-unbounded font-bold text-[32px] leading-[38px] uppercase"
@@ -2462,7 +3126,7 @@
             <a
               href="#"
               target="_blank"
-              class="bg-primary flex items-center justify-center gap-6 px-10 py-6 rounded-[12px] w-[320px] hover:bg-[#662966] transition-all duration-300"
+              class="bg-primary flex items-center justify-center gap-6 px-10 py-6 rounded-[12px] w-full hover:bg-[#662966] transition-all duration-300 lg:w-[320px]"
             >
               <span
                 class="font-akrobat font-bold text-[18px] leading-[22px] text-white whitespace-nowrap"
@@ -2485,13 +3149,12 @@
           </div>
 
           <div
-            class="absolute"
+            class="hidden lg:flex absolute"
             style="
               left: 697.97px;
               bottom: -70.72px;
               width: 415.923px;
               height: 559.385px;
-              display: flex;
               align-items: center;
               justify-content: center;
             "
@@ -2515,13 +3178,12 @@
           </div>
 
           <div
-            class="absolute"
+            class="hidden lg:flex absolute"
             style="
               left: 833.75px;
               bottom: -136px;
               width: 446.245px;
               height: 579.004px;
-              display: flex;
               align-items: center;
               justify-content: center;
             "
@@ -2543,15 +3205,17 @@
         </div>
       </section>
 
-      <!-- КОНТАКТЫ -->
-      <section id="contacts" class="mt-40 mb-8" aria-label="Контакты">
+      <section id="contacts" class="mt-20 lg:mt-40 mb-8" aria-label="Контакты">
         <div
-          class="bg-[#f4f2f7] rounded-[24px] p-16 flex flex-col justify-between js-animate anim-up"
-          style="height: 540px"
+          class="bg-[#f4f2f7] rounded-[24px] flex flex-col justify-between gap-10 p-6 md:p-10 lg:h-[540px] lg:p-16 lg:gap-0 js-animate anim-up"
         >
-          <div class="flex items-start justify-between">
-            <div class="flex flex-col w-[488px]" style="gap: 64px">
-              <div class="h-20">
+          <div
+            class="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between"
+          >
+            <div
+              class="flex flex-col gap-8 w-full lg:gap-16 lg:w-[488px]"
+            >
+              <div class="h-20 hidden lg:block">
                 <img
                   src="./assets/images/logo.svg"
                   alt="КОРД"
@@ -2562,7 +3226,7 @@
                 <div class="flex flex-col gap-2">
                   <a
                     href="tel:89851468908"
-                    class="w-fit font-unbounded font-bold text-[40px] leading-[40px] text-[#223342] uppercase num-features hover:text-[#813481] transition-all duration-300"
+                    class="w-fit font-unbounded font-bold text-[28px] leading-[34px] text-[#223342] uppercase num-features hover:text-[#813481] transition-all duration-300 lg:text-[40px] lg:leading-[40px]"
                   >
                     8 985 146 89 08
                   </a>
@@ -2573,10 +3237,10 @@
                     hello@kord.ru
                   </a>
                 </div>
-                <div class="flex gap-2">
+                <div class="flex flex-col gap-2 lg:flex-row">
                   <a
                     href="#"
-                    class="bg-primary flex items-center justify-center px-5 py-4 rounded-[12px] w-[240px]"
+                    class="bg-primary flex items-center justify-center px-5 py-4 rounded-[12px] w-full lg:w-[240px]"
                   >
                     <span
                       class="font-akrobat font-bold text-[18px] leading-[22px] text-white whitespace-nowrap"
@@ -2585,7 +3249,7 @@
                   </a>
                   <a
                     href="#"
-                    class="btn-whatsapp bg-white flex items-center justify-center px-5 py-4 rounded-[12px] w-[240px]"
+                    class="btn-whatsapp bg-white flex items-center justify-center px-5 py-4 rounded-[12px] w-full lg:w-[240px]"
                   >
                     <span
                       class="font-akrobat font-bold text-[18px] leading-[22px] text-[#223342] whitespace-nowrap"
@@ -2596,7 +3260,9 @@
               </div>
             </div>
 
-            <div class="flex gap-2 items-center">
+            <div
+              class="flex flex-wrap gap-2 items-center justify-center lg:justify-start lg:flex-nowrap"
+            >
               <a
                 href="#"
                 aria-label="Telegram"
@@ -2692,23 +3358,35 @@
                 </svg>
               </a>
             </div>
+
+            <div class="lg:hidden flex justify-center pt-2">
+              <img
+                src="./assets/images/logo.svg"
+                alt="КОРД"
+                class="h-14 w-auto"
+              />
+            </div>
           </div>
 
-          <div class="flex items-center justify-between">
+          <div
+            class="flex flex-col items-center gap-4 lg:flex-row lg:items-center lg:justify-between"
+          >
             <a
               href="https://yandex.com/maps/2/saint-petersburg/house/kolomyazhskiy_prospekt_15k2/Z0kYdA5pSkcGQFhqfXxxcHpkZQ==/?ll=30.299321%2C60.001671&z=16"
-              class="font-akrobat font-semibold text-[18px] leading-[22px] text-[#223342] opacity-50 hover:opacity-100 hover:underline transition-all duration-300"
+              class="font-akrobat font-semibold text-[18px] leading-[22px] text-[#223342] opacity-50 hover:opacity-100 hover:underline transition-all duration-300 text-center lg:text-left"
             >
               Санкт-Петербург, Коломяжский проспект, 15к2
             </a>
-            <div class="flex items-center gap-4">
+            <div
+              class="flex flex-col items-center gap-2 md:flex-row md:items-center md:gap-4 lg:items-start"
+            >
               <a
                 href="#"
                 class="font-akrobat font-semibold text-[18px] leading-[22px] text-[#223342] opacity-50 whitespace-nowrap hover:opacity-100 hover:underline transition-all duration-300"
                 >Политика конфиденциальности</a
               >
               <span
-                class="font-akrobat font-semibold text-[18px] leading-[22px] text-[#223342] opacity-30"
+                class="hidden md:inline font-akrobat font-semibold text-[18px] leading-[22px] text-[#223342] opacity-30"
                 >—</span
               >
               <a
@@ -2720,9 +3398,11 @@
           </div>
         </div>
 
-        <div class="flex items-start justify-between mt-8 px-4">
+        <div
+          class="flex flex-col gap-4 items-center mt-8 px-4 md:flex-row md:items-start md:justify-between"
+        >
           <p
-            class="font-akrobat text-[14px] leading-4 text-[#223342] opacity-50 max-w-[800px]"
+            class="font-akrobat text-[14px] leading-4 text-[#223342] opacity-50 max-w-[800px] text-center md:text-left"
           >
             Любая информация, представленная на данном сайте, ни при каких
             условиях не является публичной офертой, определяемой положениями
@@ -2782,7 +3462,6 @@
       </section>
     </div>
 
-    <!-- МОДАЛКА -->
     <div
       id="modal-overlay"
       class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 hidden"
@@ -2795,7 +3474,7 @@
         class="bg-white rounded-[32px] overflow-hidden flex w-full max-w-[730px] mx-6"
       >
         <div id="modal-form" class="flex w-full">
-          <div class="flex items-stretch p-2 flex-shrink-0">
+          <div class="hidden md:flex items-stretch p-2 flex-shrink-0">
             <div
               class="relative w-[300px] rounded-[24px] overflow-hidden flex flex-col justify-end p-4"
             >
@@ -2872,7 +3551,9 @@
                   Оставьте ваш номер телефона, чтобы получить консультацию или
                   рассчитать ипотеку
                 </p>
-                <div class="kord-input-wrap relative bg-[#f4f2f7] h-14 w-full rounded-[12px]">
+                <div
+                  class="kord-input-wrap relative bg-[#f4f2f7] h-14 w-full rounded-[12px]"
+                >
                   <input
                     id="phone-input"
                     type="tel"
@@ -2925,7 +3606,6 @@
           </div>
         </div>
 
-        <!-- Успешная отправка -->
         <div
           id="modal-success"
           class="hidden flex-col gap-10 px-10 py-20 w-full items-center"
@@ -2950,7 +3630,6 @@
       </div>
     </div>
 
-    <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="assets/scripts/main.js"></script>
 
