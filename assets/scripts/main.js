@@ -151,6 +151,7 @@ if (document.querySelector('.objects-swiper')) {
 if (document.querySelector('.cases-swiper')) {
   new Swiper('.cases-swiper', {
     loop: true,
+    loopAdditionalSlides: 3,
     slidesPerView: 1,
     spaceBetween: 16,
     navigation: {
@@ -169,6 +170,7 @@ if (document.querySelector('.cases-swiper')) {
       1025: {
         slidesPerView: 3,
         spaceBetween: 16,
+        slidesPerGroup: 3,
       },
     },
   });

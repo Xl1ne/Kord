@@ -41,9 +41,11 @@
 
   <body class="bg-[#FDFDFD] font-akrobat text-[#223342] antialiased">
     <div
-      class="max-w-[375px] mx-auto px-4 md:max-w-[677px] lg:max-w-[1440px] lg:pt-[88px]"
+      class="max-w-[383px] mx-auto px-4 overflow-x-hidden md:overflow-x-visible md:max-w-[683px] lg:max-w-[1392px] lg:pt-[88px]"
     >
-      <header class="fixed z-50 flex flex-col gap-[2px] left-1/2 -translate-x-1/2 top-3 w-full max-w-[351px] md:top-[14px] md:max-w-[647px] lg:top-4 lg:w-[calc(100%-2rem)] lg:max-w-[1408px]">
+      <header
+        class="fixed z-50 flex flex-col gap-[2px] left-1/2 -translate-x-1/2 top-3 w-full max-w-[351px] md:top-[14px] md:max-w-[647px] lg:top-4 lg:max-w-[1360px]"
+      >
         <nav
           class="bg-white flex items-center justify-between pl-4 pr-[6px] py-[6px] rounded-[16px] lg:pl-7 lg:pr-2 lg:py-2 lg:rounded-[20px]"
         >
@@ -255,17 +257,14 @@
           style="grid-template-columns: 446px 1fr"
         >
           <div
-            class="bg-[#f4f2f7] flex flex-col justify-between p-4 gap-6 order-2 mt-[-164px] ml-[8px] mr-[8px] rounded-[24px] relative z-10 lg:mt-0 lg:rounded-none lg:order-first lg:rounded-[24px] lg:gap-0 lg:overflow-hidden"
+            class="bg-[#f4f2f7] flex flex-col justify-between p-4 gap-6 order-2 mt-[-164px] ml-[8px] mr-[8px] rounded-[24px] relative z-10 lg:mt-0 lg:order-first lg:rounded-[24px] lg:gap-0 lg:overflow-hidden"
           >
             <div class="flex flex-col gap-2">
-              <div class="flex flex-col gap-4 p-4 text-[#223342]">
+              <div class="flex flex-col gap-4 text-[#223342] lg:p-4">
                 <h1
                   class="font-unbounded font-bold text-[24px] leading-7 md:text-[32px] md:leading-9 lg:text-[28px] lg:leading-[34px] uppercase"
                 >
-                  Помогаем<br />
-                  инвесторам<br />
-                  купить объекты<br />
-                  выгодно
+                  Помогаем инвесторам купить объекты выгодно
                 </h1>
                 <p
                   class="font-akrobat font-bold text-[16px] leading-5 lg:text-[18px] lg:leading-[22px]"
@@ -1131,7 +1130,7 @@
         class="mt-20 lg:mt-40"
         aria-label="Наша философия"
       >
-        <div class="flex flex-col gap-12 lg:flex-row lg:items-start">
+        <div class="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-8">
           <div
             class="w-full flex flex-col gap-4 lg:w-[600px] lg:flex-shrink-0 lg:self-start lg:sticky lg:top-0 lg:pt-20 lg:gap-8"
           >
@@ -1204,10 +1203,10 @@
                 class="service-rows-scroll flex gap-2 pb-2 items-start overflow-x-auto snap-x snap-mandatory lg:flex-col lg:overflow-x-visible lg:snap-none lg:gap-3 lg:pb-0"
               >
                 <div
-                  class="service-row flex flex-col isolate items-start pb-8 w-[320px] md:w-[360px] shrink-0 snap-start lg:flex-row lg:pb-0 lg:w-auto lg:shrink lg:snap-align-none lg:pr-8"
+                  class="service-row flex flex-col isolate items-start pb-8 w-[320px] md:w-[360px] shrink-0 snap-start lg:flex-row lg:pb-0 lg:w-auto lg:shrink lg:snap-align-none"
                 >
                   <div
-                    class="relative z-[2] w-full bg-[#f4f2f7] rounded-[24px] flex flex-col gap-4 p-5 -mb-8 h-[200px] md:h-[200px] lg:h-[216px]"
+                    class="relative z-[2] w-full bg-[#f4f2f7] rounded-[24px] flex flex-col gap-4 p-5 -mb-8 h-[200px] md:h-[200px] lg:h-[216px] lg:p-6 lg:w-[380px]"
                   >
                     <div class="flex gap-1 items-center">
                       <div
@@ -1238,14 +1237,16 @@
                       <p class="font-akrobat font-black text-[22px] leading-6">
                         Технический аудит
                       </p>
-                      <p class="font-akrobat font-bold text-[16px] leading-5">
+                      <p
+                        class="font-akrobat font-bold text-[16px] leading-5 lg:text-[18px] lg:leading-[22px]"
+                      >
                         Мы проверяем каждый кВт и каждую запятую в выписке ЕГРН.
                         Вы покупаете чистый объект без «сюрпризов».
                       </p>
                     </div>
                   </div>
                   <div
-                    class="relative z-[1] w-full bg-white border border-[rgba(145,143,148,0.3)] rounded-bl-[24px] rounded-br-[24px] flex flex-col gap-4 pt-12 pb-5 px-5 h-[268px] md:h-[268px] lg:h-[216px]"
+                    class="relative z-[1] w-full bg-white border border-[rgba(145,143,148,0.3)] rounded-bl-[24px] rounded-br-[24px] flex flex-col gap-4 pt-12 pb-5 px-5 h-[268px] md:h-[268px] lg:h-[216px] lg:pt-6 lg:pb-6 lg:pl-16 lg:pr-6 lg:w-[380px] lg:ml-[-34px] lg:rounded-[24px]"
                   >
                     <div class="flex gap-1 items-center">
                       <div
@@ -1276,7 +1277,9 @@
                       <p class="font-akrobat font-black text-[22px] leading-6">
                         Неожиданные сюрпризы
                       </p>
-                      <p class="font-akrobat font-bold text-[16px] leading-5">
+                      <p
+                        class="font-akrobat font-bold text-[16px] leading-5 lg:text-[18px] lg:leading-[22px]"
+                      >
                         Вы покупаете помещение, а через месяц выясняется, что
                         мощности электричества не хватает, а по документам это
                         вообще жилой фонд.
@@ -1286,10 +1289,10 @@
                 </div>
 
                 <div
-                  class="service-row flex flex-col isolate items-start pb-8 w-[320px] md:w-[360px] shrink-0 snap-start lg:flex-row lg:pb-0 lg:w-auto lg:shrink lg:snap-align-none lg:pr-8"
+                  class="service-row flex flex-col isolate items-start pb-8 w-[320px] md:w-[360px] shrink-0 snap-start lg:flex-row lg:pb-0 lg:w-auto lg:shrink lg:snap-align-none"
                 >
                   <div
-                    class="relative z-[2] w-full bg-[#f4f2f7] rounded-[24px] flex flex-col gap-4 p-5 -mb-8 h-[200px] md:h-[200px] lg:h-[216px]"
+                    class="relative z-[2] w-full bg-[#f4f2f7] rounded-[24px] flex flex-col gap-4 p-5 -mb-8 h-[200px] md:h-[200px] lg:h-[216px] lg:p-6 lg:w-[380px]"
                   >
                     <div class="flex gap-1 items-center">
                       <div
@@ -1320,7 +1323,9 @@
                       <p class="font-akrobat font-black text-[22px] leading-6">
                         Точный расчет
                       </p>
-                      <p class="font-akrobat font-bold text-[16px] leading-5">
+                      <p
+                        class="font-akrobat font-bold text-[16px] leading-5 lg:text-[18px] lg:leading-[22px]"
+                      >
                         Мы составляем прозрачную финансовую модель. Вы заранее
                         понимаете все цифры и сроки, без лишнего оптимизма —
                         только факты.
@@ -1328,7 +1333,7 @@
                     </div>
                   </div>
                   <div
-                    class="relative z-[1] w-full bg-white border border-[rgba(145,143,148,0.3)] rounded-bl-[24px] rounded-br-[24px] flex flex-col gap-4 pt-12 pb-5 px-5 h-[268px] md:h-[268px] lg:h-[216px]"
+                    class="relative z-[1] w-full bg-white border border-[rgba(145,143,148,0.3)] rounded-bl-[24px] rounded-br-[24px] flex flex-col gap-4 pt-12 pb-5 px-5 h-[268px] md:h-[268px] lg:h-[216px] lg:pt-6 lg:pb-6 lg:pl-16 lg:pr-6 lg:w-[380px] lg:ml-[-34px] lg:rounded-[24px]"
                   >
                     <div class="flex gap-1 items-center">
                       <div
@@ -1359,7 +1364,9 @@
                       <p class="font-akrobat font-black text-[22px] leading-6">
                         Липовая доходность
                       </p>
-                      <p class="font-akrobat font-bold text-[16px] leading-5">
+                      <p
+                        class="font-akrobat font-bold text-[16px] leading-5 lg:text-[18px] lg:leading-[22px]"
+                      >
                         Продавец обещает окупаемость 7 лет, но «забывает»
                         сказать, что арендатор съезжает через месяц, а налоги и
                         коммуналка съедят половину прибыли.
@@ -1369,10 +1376,10 @@
                 </div>
 
                 <div
-                  class="service-row flex flex-col isolate items-start pb-8 w-[320px] md:w-[360px] shrink-0 snap-start lg:flex-row lg:pb-0 lg:w-auto lg:shrink lg:snap-align-none lg:pr-8"
+                  class="service-row flex flex-col isolate items-start pb-8 w-[320px] md:w-[360px] shrink-0 snap-start lg:flex-row lg:pb-0 lg:w-auto lg:shrink lg:snap-align-none"
                 >
                   <div
-                    class="relative z-[2] w-full bg-[#f4f2f7] rounded-[24px] flex flex-col gap-4 p-5 -mb-8 h-[200px] md:h-[200px] lg:h-[216px]"
+                    class="relative z-[2] w-full bg-[#f4f2f7] rounded-[24px] flex flex-col gap-4 p-5 -mb-8 h-[200px] md:h-[200px] lg:h-[216px] lg:p-6 lg:w-[380px]"
                   >
                     <div class="flex gap-1 items-center">
                       <div
@@ -1403,7 +1410,9 @@
                       <p class="font-akrobat font-black text-[22px] leading-6">
                         Фокус на главном
                       </p>
-                      <p class="font-akrobat font-bold text-[16px] leading-5">
+                      <p
+                        class="font-akrobat font-bold text-[16px] leading-5 lg:text-[18px] lg:leading-[22px]"
+                      >
                         Мы уже отфильтровали рынок для вас. Предлагаем только те
                         варианты, которые прошли наш внутренний контроль
                         качества.
@@ -1411,7 +1420,7 @@
                     </div>
                   </div>
                   <div
-                    class="relative z-[1] w-full bg-white border border-[rgba(145,143,148,0.3)] rounded-bl-[24px] rounded-br-[24px] flex flex-col gap-4 pt-12 pb-5 px-5 h-[268px] md:h-[268px] lg:h-[216px]"
+                    class="relative z-[1] w-full bg-white border border-[rgba(145,143,148,0.3)] rounded-bl-[24px] rounded-br-[24px] flex flex-col gap-4 pt-12 pb-5 px-5 h-[268px] md:h-[268px] lg:h-[216px] lg:pt-6 lg:pb-6 lg:pl-16 lg:pr-6 lg:w-[380px] lg:ml-[-34px] lg:rounded-[24px]"
                   >
                     <div class="flex gap-1 items-center">
                       <div
@@ -1442,7 +1451,9 @@
                       <p class="font-akrobat font-black text-[22px] leading-6">
                         Мимо лучших лотов
                       </p>
-                      <p class="font-akrobat font-bold text-[16px] leading-5">
+                      <p
+                        class="font-akrobat font-bold text-[16px] leading-5 lg:text-[18px] lg:leading-[22px]"
+                      >
                         Десятки сайтов, сотни объявлений. Пока вы изучаете один
                         вариант, действительно выгодные лоты часто улетают к
                         тем, кто занимается этим профессионально.
@@ -1452,10 +1463,10 @@
                 </div>
 
                 <div
-                  class="service-row flex flex-col isolate items-start pb-8 w-[320px] md:w-[360px] shrink-0 snap-start lg:flex-row lg:pb-0 lg:w-auto lg:shrink lg:snap-align-none lg:pr-8"
+                  class="service-row flex flex-col isolate items-start pb-8 w-[320px] md:w-[360px] shrink-0 snap-start lg:flex-row lg:pb-0 lg:w-auto lg:shrink lg:snap-align-none"
                 >
                   <div
-                    class="relative z-[2] w-full bg-[#f4f2f7] rounded-[24px] flex flex-col gap-4 p-5 -mb-8 h-[200px] md:h-[200px] lg:h-[238px]"
+                    class="relative z-[2] w-full bg-[#f4f2f7] rounded-[24px] flex flex-col gap-4 p-5 -mb-8 h-[200px] md:h-[200px] lg:h-[238px] lg:p-6 lg:w-[380px]"
                   >
                     <div class="flex gap-1 items-center">
                       <div
@@ -1486,7 +1497,9 @@
                       <p class="font-akrobat font-black text-[22px] leading-6">
                         Управление под ключ
                       </p>
-                      <p class="font-akrobat font-bold text-[16px] leading-5">
+                      <p
+                        class="font-akrobat font-bold text-[16px] leading-5 lg:text-[18px] lg:leading-[22px]"
+                      >
                         Мы не бросаем вас после сделки. Мы сами найдем
                         арендаторов, подпишем договоры и будем следить за
                         порядком. Вы только получаете отчеты и деньги на счет.
@@ -1494,7 +1507,7 @@
                     </div>
                   </div>
                   <div
-                    class="relative z-[1] w-full bg-white border border-[rgba(145,143,148,0.3)] rounded-bl-[24px] rounded-br-[24px] flex flex-col gap-4 pt-12 pb-5 px-5 h-[268px] md:h-[268px] lg:h-[238px]"
+                    class="relative z-[1] w-full bg-white border border-[rgba(145,143,148,0.3)] rounded-bl-[24px] rounded-br-[24px] flex flex-col gap-4 pt-12 pb-5 px-5 h-[268px] md:h-[268px] lg:h-[238px] lg:pt-6 lg:pb-6 lg:pl-16 lg:pr-6 lg:w-[380px] lg:ml-[-34px] lg:rounded-[24px]"
                   >
                     <div class="flex gap-1 items-center">
                       <div
@@ -1525,7 +1538,9 @@
                       <p class="font-akrobat font-black text-[22px] leading-6">
                         Головная боль управления
                       </p>
-                      <p class="font-akrobat font-bold text-[16px] leading-5">
+                      <p
+                        class="font-akrobat font-bold text-[16px] leading-5 lg:text-[18px] lg:leading-[22px]"
+                      >
                         После покупки начинается самое интересное — поиск
                         арендаторов и решение их бытовых проблем. Инвестиция
                         внезапно начинает требовать вашего внимания 24/7.
@@ -1577,10 +1592,10 @@
                 class="service-rows-scroll flex gap-2 pb-2 items-start overflow-x-auto snap-x snap-mandatory lg:flex-col lg:overflow-x-visible lg:snap-none lg:gap-3 lg:pb-0"
               >
                 <div
-                  class="service-row flex flex-col isolate items-start pb-8 w-[320px] md:w-[360px] shrink-0 snap-start lg:flex-row lg:pb-0 lg:w-auto lg:shrink lg:snap-align-none lg:pr-8"
+                  class="service-row flex flex-col isolate items-start pb-8 w-[320px] md:w-[360px] shrink-0 snap-start lg:flex-row lg:pb-0 lg:w-auto lg:shrink lg:snap-align-none"
                 >
                   <div
-                    class="relative z-[2] w-full bg-[#f4f2f7] rounded-[24px] flex flex-col gap-4 p-5 -mb-8 h-[200px] md:h-[200px] lg:h-[216px]"
+                    class="relative z-[2] w-full bg-[#f4f2f7] rounded-[24px] flex flex-col gap-4 p-5 -mb-8 h-[200px] md:h-[200px] lg:h-[216px] lg:p-6 lg:w-[380px]"
                   >
                     <div class="flex gap-1 items-center">
                       <div
@@ -1611,7 +1626,9 @@
                       <p class="font-akrobat font-black text-[22px] leading-6">
                         Точная оценка
                       </p>
-                      <p class="font-akrobat font-bold text-[16px] leading-5">
+                      <p
+                        class="font-akrobat font-bold text-[16px] leading-5 lg:text-[18px] lg:leading-[22px]"
+                      >
                         Мы не гадаем, а анализируем текущие сделки. Помогаем
                         найти ту самую «золотую середину» в цене, чтобы объект
                         не стоял, а работал.
@@ -1619,7 +1636,7 @@
                     </div>
                   </div>
                   <div
-                    class="relative z-[1] w-full bg-white border border-[rgba(145,143,148,0.3)] rounded-bl-[24px] rounded-br-[24px] flex flex-col gap-4 pt-12 pb-5 px-5 h-[268px] md:h-[268px] lg:h-[216px]"
+                    class="relative z-[1] w-full bg-white border border-[rgba(145,143,148,0.3)] rounded-bl-[24px] rounded-br-[24px] flex flex-col gap-4 pt-12 pb-5 px-5 h-[268px] md:h-[268px] lg:h-[216px] lg:pt-6 lg:pb-6 lg:pl-16 lg:pr-6 lg:w-[380px] lg:ml-[-34px] lg:rounded-[24px]"
                   >
                     <div class="flex gap-1 items-center">
                       <div
@@ -1650,7 +1667,9 @@
                       <p class="font-akrobat font-black text-[22px] leading-6">
                         Оценка объекта
                       </p>
-                      <p class="font-akrobat font-bold text-[16px] leading-5">
+                      <p
+                        class="font-akrobat font-bold text-[16px] leading-5 lg:text-[18px] lg:leading-[22px]"
+                      >
                         Установка цены «на глаз» или по верху рынка приводит к
                         тому, что объект «зависает» на длительное время, он
                         становится не интересным для рынка.
@@ -1660,10 +1679,10 @@
                 </div>
 
                 <div
-                  class="service-row flex flex-col isolate items-start pb-8 w-[320px] md:w-[360px] shrink-0 snap-start lg:flex-row lg:pb-0 lg:w-auto lg:shrink lg:snap-align-none lg:pr-8"
+                  class="service-row flex flex-col isolate items-start pb-8 w-[320px] md:w-[360px] shrink-0 snap-start lg:flex-row lg:pb-0 lg:w-auto lg:shrink lg:snap-align-none"
                 >
                   <div
-                    class="relative z-[2] w-full bg-[#f4f2f7] rounded-[24px] flex flex-col gap-4 p-5 -mb-8 h-[200px] md:h-[200px] lg:h-[216px]"
+                    class="relative z-[2] w-full bg-[#f4f2f7] rounded-[24px] flex flex-col gap-4 p-5 -mb-8 h-[200px] md:h-[200px] lg:h-[238px] lg:p-6 lg:w-[380px]"
                   >
                     <div class="flex gap-1 items-center">
                       <div
@@ -1694,7 +1713,9 @@
                       <p class="font-akrobat font-black text-[22px] leading-6">
                         Юридический щит
                       </p>
-                      <p class="font-akrobat font-bold text-[16px] leading-5">
+                      <p
+                        class="font-akrobat font-bold text-[16px] leading-5 lg:text-[18px] lg:leading-[22px]"
+                      >
                         Наши юристы готовят сделку «под ключ». Вы просто
                         приходите на подписание, зная, что ваши интересы
                         защищены на 100%.
@@ -1702,7 +1723,7 @@
                     </div>
                   </div>
                   <div
-                    class="relative z-[1] w-full bg-white border border-[rgba(145,143,148,0.3)] rounded-bl-[24px] rounded-br-[24px] flex flex-col gap-4 pt-12 pb-5 px-5 h-[268px] md:h-[268px] lg:h-[216px]"
+                    class="relative z-[1] w-full bg-white border border-[rgba(145,143,148,0.3)] rounded-bl-[24px] rounded-br-[24px] flex flex-col gap-4 pt-12 pb-5 px-5 h-[268px] md:h-[268px] lg:h-[238px] lg:pt-6 lg:pb-6 lg:pl-16 lg:pr-6 lg:w-[380px] lg:ml-[-34px] lg:rounded-[24px]"
                   >
                     <div class="flex gap-1 items-center">
                       <div
@@ -1733,7 +1754,9 @@
                       <p class="font-akrobat font-black text-[22px] leading-6">
                         Бумажные хлопоты
                       </p>
-                      <p class="font-akrobat font-bold text-[16px] leading-5">
+                      <p
+                        class="font-akrobat font-bold text-[16px] leading-5 lg:text-[18px] lg:leading-[22px]"
+                      >
                         Подготовка договора и сбор справок превращаются в
                         неувлекательный квест. Один неверный пункт в договоре —
                         и сделка разваливается в кабинете нотариуса.
@@ -1743,10 +1766,10 @@
                 </div>
 
                 <div
-                  class="service-row flex flex-col isolate items-start pb-8 w-[320px] md:w-[360px] shrink-0 snap-start lg:flex-row lg:pb-0 lg:w-auto lg:shrink lg:snap-align-none lg:pr-8"
+                  class="service-row flex flex-col isolate items-start pb-8 w-[320px] md:w-[360px] shrink-0 snap-start lg:flex-row lg:pb-0 lg:w-auto lg:shrink lg:snap-align-none"
                 >
                   <div
-                    class="relative z-[2] w-full bg-[#f4f2f7] rounded-[24px] flex flex-col gap-4 p-5 -mb-8 h-[200px] md:h-[200px] lg:h-[216px]"
+                    class="relative z-[2] w-full bg-[#f4f2f7] rounded-[24px] flex flex-col gap-4 p-5 -mb-8 h-[200px] md:h-[200px] lg:h-[216px] lg:p-6 lg:w-[380px]"
                   >
                     <div class="flex gap-1 items-center">
                       <div
@@ -1777,14 +1800,16 @@
                       <p class="font-akrobat font-black text-[22px] leading-6">
                         Бережем ваше время
                       </p>
-                      <p class="font-akrobat font-bold text-[16px] leading-5">
+                      <p
+                        class="font-akrobat font-bold text-[16px] leading-5 lg:text-[18px] lg:leading-[22px]"
+                      >
                         Мы берем на себя все переговоры и показы. К вам приходим
                         уже с готовым предложением от серьезного покупателя.
                       </p>
                     </div>
                   </div>
                   <div
-                    class="relative z-[1] w-full bg-white border border-[rgba(145,143,148,0.3)] rounded-bl-[24px] rounded-br-[24px] flex flex-col gap-4 pt-12 pb-5 px-5 h-[268px] md:h-[268px] lg:h-[216px]"
+                    class="relative z-[1] w-full bg-white border border-[rgba(145,143,148,0.3)] rounded-bl-[24px] rounded-br-[24px] flex flex-col gap-4 pt-12 pb-5 px-5 h-[268px] md:h-[268px] lg:h-[216px] lg:pt-6 lg:pb-6 lg:pl-16 lg:pr-6 lg:w-[380px] lg:ml-[-34px] lg:rounded-[24px]"
                   >
                     <div class="flex gap-1 items-center">
                       <div
@@ -1815,7 +1840,9 @@
                       <p class="font-akrobat font-black text-[22px] leading-6">
                         Пустые звонки
                       </p>
-                      <p class="font-akrobat font-bold text-[16px] leading-5">
+                      <p
+                        class="font-akrobat font-bold text-[16px] leading-5 lg:text-[18px] lg:leading-[22px]"
+                      >
                         Ваш телефон разрывается от спама. Приходится тратить
                         выходные на показы людям, у которых нет денег.
                       </p>
@@ -1824,10 +1851,10 @@
                 </div>
 
                 <div
-                  class="service-row flex flex-col isolate items-start pb-8 w-[320px] md:w-[360px] shrink-0 snap-start lg:flex-row lg:pb-0 lg:w-auto lg:shrink lg:snap-align-none lg:pr-8"
+                  class="service-row flex flex-col isolate items-start pb-8 w-[320px] md:w-[360px] shrink-0 snap-start lg:flex-row lg:pb-0 lg:w-auto lg:shrink lg:snap-align-none"
                 >
                   <div
-                    class="relative z-[2] w-full bg-[#f4f2f7] rounded-[24px] flex flex-col gap-4 p-5 -mb-8 h-[200px] md:h-[200px] lg:h-[238px]"
+                    class="relative z-[2] w-full bg-[#f4f2f7] rounded-[24px] flex flex-col gap-4 p-5 -mb-8 h-[200px] md:h-[200px] lg:h-[238px] lg:p-6 lg:w-[380px]"
                   >
                     <div class="flex gap-1 items-center">
                       <div
@@ -1858,7 +1885,9 @@
                       <p class="font-akrobat font-black text-[22px] leading-6">
                         Упаковка объекта
                       </p>
-                      <p class="font-akrobat font-bold text-[16px] leading-5">
+                      <p
+                        class="font-akrobat font-bold text-[16px] leading-5 lg:text-[18px] lg:leading-[22px]"
+                      >
                         Подскажем, как подготовить объект, чтобы он влюбил в
                         себя с первого взгляда. Если нужно — поможем с
                         косметическим ремонтом или клинингом.
@@ -1866,7 +1895,7 @@
                     </div>
                   </div>
                   <div
-                    class="relative z-[1] w-full bg-white border border-[rgba(145,143,148,0.3)] rounded-bl-[24px] rounded-br-[24px] flex flex-col gap-4 pt-12 pb-5 px-5 h-[268px] md:h-[268px] lg:h-[238px]"
+                    class="relative z-[1] w-full bg-white border border-[rgba(145,143,148,0.3)] rounded-bl-[24px] rounded-br-[24px] flex flex-col gap-4 pt-12 pb-5 px-5 h-[268px] md:h-[268px] lg:h-[238px] lg:pt-6 lg:pb-6 lg:pl-16 lg:pr-6 lg:w-[380px] lg:ml-[-34px] lg:rounded-[24px]"
                   >
                     <div class="flex gap-1 items-center">
                       <div
@@ -1897,7 +1926,9 @@
                       <p class="font-akrobat font-black text-[22px] leading-6">
                         Предпродажный хаос
                       </p>
-                      <p class="font-akrobat font-bold text-[16px] leading-5">
+                      <p
+                        class="font-akrobat font-bold text-[16px] leading-5 lg:text-[18px] lg:leading-[22px]"
+                      >
                         Сложно объективно взглянуть на свой объект. Иногда пара
                         мелочей в отделке могут добавить к цене весомую сумму.
                         Покупатель видит это и начинает агрессивно сбивать цену.
@@ -2146,13 +2177,13 @@
                 Наша специализация — ваш трамплин
               </p>
               <h2
-                class="font-unbounded font-bold text-[26px] leading-[32px] tracking-[-0.52px] uppercase text-[#223342] num-features"
+                class="font-unbounded font-bold text-[24px] leading-7 tracking-[-0.52px] uppercase text-[#223342] num-features lg:text-[26px] lg:leading-[32px]"
               >
                 Торги: недвижимость по ценам, которых нет на Авито
               </h2>
             </div>
             <p
-              class="font-akrobat font-bold text-[18px] leading-[22px] text-[#223342] max-w-[600px]"
+              class="font-akrobat font-bold text-[16px] leading-5 text-[#223342] lg:max-w-[600px] lg:text-[18px] lg:leading-[22px]"
             >
               Покупка с аукциона — это юридический лабиринт. Но именно там
               спрятаны самые «сочные» лоты.
@@ -2165,25 +2196,27 @@
           </div>
 
           <div
-            class="w-full h-auto bg-[#f4f2f7] rounded-[24px] overflow-hidden p-6 relative flex flex-col justify-between lg:flex-1 lg:h-[400px]"
+            class="w-full h-auto bg-[#f4f2f7] rounded-[32px] pt-3 px-3 pb-6 relative flex flex-col gap-6 lg:rounded-[24px] lg:overflow-hidden lg:p-6 lg:justify-between lg:gap-0 lg:flex-1 lg:h-[400px]"
           >
             <div
-              class="bg-white flex gap-8 h-auto p-6 rounded-[24px] items-center shadow-[0px_4px_36px_0px_rgba(129,52,129,0.1)] lg:h-[134px] lg:items-start"
+              class="bg-white flex gap-8 h-auto p-4 rounded-[24px] items-center shadow-[0px_4px_36px_0px_rgba(129,52,129,0.1)] lg:p-6 lg:h-[134px] lg:items-start"
             >
               <div
                 class="flex-1 flex flex-col h-full justify-between text-[#223342]"
               >
                 <p
-                  class="font-unbounded font-bold text-[16px] leading-6 tracking-[-0.32px] uppercase num-features"
+                  class="font-unbounded font-bold text-[14px] leading-5 tracking-[-0.28px] uppercase num-features lg:text-[16px] lg:leading-6 lg:tracking-[-0.32px]"
                 >
                   Хотите список актуальных<br />лотов с торгов?
                 </p>
-                <p class="font-akrobat font-bold text-[18px] leading-[22px]">
+                <p
+                  class="font-akrobat font-bold text-[16px] leading-5 lg:text-[18px] lg:leading-[22px]"
+                >
                   Оставьте номер, пришлем подборку в WhatsApp
                 </p>
               </div>
               <button
-                class="w-20 h-20 bg-primary rounded-full flex items-center justify-center flex-shrink-0 hover:bg-[#662966] transition-all duration-300"
+                class="w-16 h-16 bg-primary rounded-full flex items-center justify-center flex-shrink-0 hover:bg-[#662966] transition-all duration-300 lg:w-20 lg:h-20"
                 onclick="openModal()"
                 aria-label="Получить список лотов"
               >
@@ -2204,12 +2237,14 @@
             </div>
 
             <div
-              class="hidden lg:flex absolute bottom-6 left-1/2 -translate-x-1/2 gap-2 items-end"
+              class="service-rows-scroll flex gap-2 overflow-x-auto lg:absolute lg:bottom-6 lg:left-1/2 lg:-translate-x-1/2 lg:items-end lg:overflow-visible"
             >
               <div
-                class="bg-white rounded-tl-[16px] rounded-tr-[16px] rounded-bl-[8px] rounded-br-[8px] w-[164px] flex flex-col gap-2 pt-1 px-1 pb-2 relative flex-shrink-0"
+                class="bg-white rounded-tl-[16px] rounded-tr-[16px] rounded-bl-[8px] rounded-br-[8px] md:rounded-tl-[24px] md:rounded-tr-[24px] md:rounded-bl-[12px] md:rounded-br-[12px] lg:rounded-tl-[16px] lg:rounded-tr-[16px] lg:rounded-bl-[8px] lg:rounded-br-[8px] w-[164px] md:w-[246px] lg:w-[164px] flex flex-col gap-2 md:gap-3 lg:gap-2 pt-1 px-1 pb-2 md:pt-[6px] md:px-[6px] md:pb-3 lg:pt-1 lg:px-1 lg:pb-2 relative flex-shrink-0"
               >
-                <div class="h-[120px] rounded-[12px] overflow-hidden relative">
+                <div
+                  class="h-[120px] md:h-[180px] lg:h-[120px] rounded-[12px] md:rounded-[18px] lg:rounded-[12px] overflow-hidden relative"
+                >
                   <img
                     src="./assets/images/objects-1.png"
                     alt=""
@@ -2240,39 +2275,47 @@
                     >
                   </div>
                 </div>
-                <div class="flex flex-col gap-2 px-1">
-                  <div class="flex flex-col gap-1">
-                    <div class="flex items-center gap-[3px]">
+                <div
+                  class="flex flex-col gap-2 md:gap-3 lg:gap-2 px-1 md:px-[6px] lg:px-1"
+                >
+                  <div class="flex flex-col gap-1 md:gap-[6px] lg:gap-1">
+                    <div
+                      class="flex items-center gap-[3px] md:gap-[4.5px] lg:gap-[3px]"
+                    >
                       <span
-                        class="font-akrobat font-semibold text-[7px] leading-[9px] text-[#223342] whitespace-nowrap"
+                        class="font-akrobat font-semibold text-[7px] leading-[9px] md:text-[10.5px] md:leading-[13.5px] lg:text-[7px] lg:leading-[9px] text-[#223342] whitespace-nowrap lg:text-[7px] lg:leading-[9px]"
                         >Помещение</span
                       >
                       <div
-                        class="bg-[#f0f0f2] flex items-center justify-center px-[3px] py-px rounded-[3px] h-3"
+                        class="bg-[#f0f0f2] flex items-center justify-center px-[3px] py-px md:px-[4.5px] md:py-[1.5px] lg:px-[3px] lg:py-px rounded-[3px] md:rounded-[4.5px] lg:rounded-[3px]"
                       >
                         <span
-                          class="font-akrobat font-bold text-[7px] leading-[9px] text-[#223342] whitespace-nowrap"
+                          class="font-akrobat font-bold text-[7px] leading-[9px] md:text-[10.5px] md:leading-[13.5px] text-[#223342] whitespace-nowrap lg:text-[7px] lg:leading-[9px]"
                           >1 000 м²</span
                         >
                       </div>
                     </div>
                     <span
-                      class="font-unbounded font-bold text-[14px] leading-[14px] text-[#223342] tracking-[-0.28px] uppercase whitespace-nowrap num-features"
+                      class="font-unbounded font-bold text-[14px] leading-[14px] md:text-[21px] md:leading-[21px] lg:text-[14px] lg:leading-[14px] text-[#223342] tracking-[-0.28px] md:tracking-[-0.42px] lg:tracking-[-0.28px] uppercase whitespace-nowrap num-features"
                       >68 453 200 ₽</span
                     >
                   </div>
-                  <div class="flex flex-col gap-[2px]">
-                    <div class="flex items-center gap-[3px]">
+                  <div
+                    class="flex flex-col gap-[2px] md:gap-[3px] lg:gap-[2px]"
+                  >
+                    <div
+                      class="flex items-center gap-[3px] md:gap-[4.5px] lg:gap-[3px]"
+                    >
                       <span
-                        class="w-[3px] h-[3px] rounded-full bg-[#3652CE] flex-shrink-0"
+                        class="w-[3px] h-[3px] md:w-[4.5px] md:h-[4.5px] lg:w-[3px] lg:h-[3px] rounded-full bg-[#3652CE] flex-shrink-0"
                       ></span>
                       <span
-                        class="font-akrobat font-bold text-[7px] leading-[9px] text-[#223342] whitespace-nowrap overflow-hidden text-ellipsis"
+                        class="font-akrobat font-bold text-[7px] leading-[9px] md:text-[10.5px] md:leading-[13.5px] text-[#223342] whitespace-nowrap lg:text-[7px] lg:leading-[9px] overflow-hidden text-ellipsis"
                         >Фрунзенская</span
                       >
                     </div>
                     <p
-                      class="font-akrobat font-semibold text-[7px] leading-[9px] text-[#808080] whitespace-nowrap overflow-hidden text-ellipsis"
+                      class="font-akrobat font-semibold text-[7px] leading-[9px] md:text-[10.5px] md:leading-[13.5px] text-[#808080] whitespace-nowrap overflow-hidden text-ellipsis lg:text-[7px] lg:leading-[9px]"
                     >
                       Санкт-Петербург, Коломяжский проспект, 15к2
                     </p>
@@ -2280,9 +2323,11 @@
                 </div>
               </div>
               <div
-                class="bg-white rounded-tl-[16px] rounded-tr-[16px] rounded-bl-[8px] rounded-br-[8px] w-[164px] flex flex-col gap-2 pt-1 px-1 pb-2 relative flex-shrink-0"
+                class="bg-white rounded-tl-[16px] rounded-tr-[16px] rounded-bl-[8px] rounded-br-[8px] md:rounded-tl-[24px] md:rounded-tr-[24px] md:rounded-bl-[12px] md:rounded-br-[12px] lg:rounded-tl-[16px] lg:rounded-tr-[16px] lg:rounded-bl-[8px] lg:rounded-br-[8px] w-[164px] md:w-[246px] lg:w-[164px] flex flex-col gap-2 md:gap-3 lg:gap-2 pt-1 px-1 pb-2 md:pt-[6px] md:px-[6px] md:pb-3 lg:pt-1 lg:px-1 lg:pb-2 relative flex-shrink-0"
               >
-                <div class="h-[120px] rounded-[12px] overflow-hidden relative">
+                <div
+                  class="h-[120px] md:h-[180px] lg:h-[120px] rounded-[12px] md:rounded-[18px] lg:rounded-[12px] overflow-hidden relative"
+                >
                   <img
                     src="./assets/images/objects-1.png"
                     alt=""
@@ -2313,39 +2358,47 @@
                     >
                   </div>
                 </div>
-                <div class="flex flex-col gap-2 px-1">
-                  <div class="flex flex-col gap-1">
-                    <div class="flex items-center gap-[3px]">
+                <div
+                  class="flex flex-col gap-2 md:gap-3 lg:gap-2 px-1 md:px-[6px] lg:px-1"
+                >
+                  <div class="flex flex-col gap-1 md:gap-[6px] lg:gap-1">
+                    <div
+                      class="flex items-center gap-[3px] md:gap-[4.5px] lg:gap-[3px]"
+                    >
                       <span
-                        class="font-akrobat font-semibold text-[7px] leading-[9px] text-[#223342] whitespace-nowrap"
+                        class="font-akrobat font-semibold text-[7px] leading-[9px] md:text-[10.5px] md:leading-[13.5px] lg:text-[7px] lg:leading-[9px] text-[#223342] whitespace-nowrap lg:text-[7px] lg:leading-[9px]"
                         >Помещение</span
                       >
                       <div
-                        class="bg-[#f0f0f2] flex items-center justify-center px-[3px] py-px rounded-[3px] h-3"
+                        class="bg-[#f0f0f2] flex items-center justify-center px-[3px] py-px md:px-[4.5px] md:py-[1.5px] lg:px-[3px] lg:py-px rounded-[3px] md:rounded-[4.5px] lg:rounded-[3px]"
                       >
                         <span
-                          class="font-akrobat font-bold text-[7px] leading-[9px] text-[#223342] whitespace-nowrap"
+                          class="font-akrobat font-bold text-[7px] leading-[9px] md:text-[10.5px] md:leading-[13.5px] text-[#223342] whitespace-nowrap lg:text-[7px] lg:leading-[9px]"
                           >1 000 м²</span
                         >
                       </div>
                     </div>
                     <span
-                      class="font-unbounded font-bold text-[14px] leading-[14px] text-[#223342] tracking-[-0.28px] uppercase whitespace-nowrap num-features"
+                      class="font-unbounded font-bold text-[14px] leading-[14px] md:text-[21px] md:leading-[21px] lg:text-[14px] lg:leading-[14px] text-[#223342] tracking-[-0.28px] md:tracking-[-0.42px] lg:tracking-[-0.28px] uppercase whitespace-nowrap num-features"
                       >68 453 200 ₽</span
                     >
                   </div>
-                  <div class="flex flex-col gap-[2px]">
-                    <div class="flex items-center gap-[3px]">
+                  <div
+                    class="flex flex-col gap-[2px] md:gap-[3px] lg:gap-[2px]"
+                  >
+                    <div
+                      class="flex items-center gap-[3px] md:gap-[4.5px] lg:gap-[3px]"
+                    >
                       <span
-                        class="w-[3px] h-[3px] rounded-full bg-[#3652CE] flex-shrink-0"
+                        class="w-[3px] h-[3px] md:w-[4.5px] md:h-[4.5px] lg:w-[3px] lg:h-[3px] rounded-full bg-[#3652CE] flex-shrink-0"
                       ></span>
                       <span
-                        class="font-akrobat font-bold text-[7px] leading-[9px] text-[#223342] whitespace-nowrap overflow-hidden text-ellipsis"
+                        class="font-akrobat font-bold text-[7px] leading-[9px] md:text-[10.5px] md:leading-[13.5px] text-[#223342] whitespace-nowrap lg:text-[7px] lg:leading-[9px] overflow-hidden text-ellipsis"
                         >Фрунзенская</span
                       >
                     </div>
                     <p
-                      class="font-akrobat font-semibold text-[7px] leading-[9px] text-[#808080] whitespace-nowrap overflow-hidden text-ellipsis"
+                      class="font-akrobat font-semibold text-[7px] leading-[9px] md:text-[10.5px] md:leading-[13.5px] text-[#808080] whitespace-nowrap overflow-hidden text-ellipsis lg:text-[7px] lg:leading-[9px]"
                     >
                       Санкт-Петербург, Коломяжский проспект, 15к2
                     </p>
@@ -2353,9 +2406,11 @@
                 </div>
               </div>
               <div
-                class="bg-white rounded-tl-[16px] rounded-tr-[16px] rounded-bl-[8px] rounded-br-[8px] w-[164px] flex flex-col gap-2 pt-1 px-1 pb-2 relative flex-shrink-0"
+                class="bg-white rounded-tl-[16px] rounded-tr-[16px] rounded-bl-[8px] rounded-br-[8px] md:rounded-tl-[24px] md:rounded-tr-[24px] md:rounded-bl-[12px] md:rounded-br-[12px] lg:rounded-tl-[16px] lg:rounded-tr-[16px] lg:rounded-bl-[8px] lg:rounded-br-[8px] w-[164px] md:w-[246px] lg:w-[164px] flex flex-col gap-2 md:gap-3 lg:gap-2 pt-1 px-1 pb-2 md:pt-[6px] md:px-[6px] md:pb-3 lg:pt-1 lg:px-1 lg:pb-2 relative flex-shrink-0"
               >
-                <div class="h-[120px] rounded-[12px] overflow-hidden relative">
+                <div
+                  class="h-[120px] md:h-[180px] lg:h-[120px] rounded-[12px] md:rounded-[18px] lg:rounded-[12px] overflow-hidden relative"
+                >
                   <img
                     src="./assets/images/objects-1.png"
                     alt=""
@@ -2386,39 +2441,47 @@
                     >
                   </div>
                 </div>
-                <div class="flex flex-col gap-2 px-1">
-                  <div class="flex flex-col gap-1">
-                    <div class="flex items-center gap-[3px]">
+                <div
+                  class="flex flex-col gap-2 md:gap-3 lg:gap-2 px-1 md:px-[6px] lg:px-1"
+                >
+                  <div class="flex flex-col gap-1 md:gap-[6px] lg:gap-1">
+                    <div
+                      class="flex items-center gap-[3px] md:gap-[4.5px] lg:gap-[3px]"
+                    >
                       <span
-                        class="font-akrobat font-semibold text-[7px] leading-[9px] text-[#223342] whitespace-nowrap"
+                        class="font-akrobat font-semibold text-[7px] leading-[9px] md:text-[10.5px] md:leading-[13.5px] lg:text-[7px] lg:leading-[9px] text-[#223342] whitespace-nowrap lg:text-[7px] lg:leading-[9px]"
                         >Помещение</span
                       >
                       <div
-                        class="bg-[#f0f0f2] flex items-center justify-center px-[3px] py-px rounded-[3px] h-3"
+                        class="bg-[#f0f0f2] flex items-center justify-center px-[3px] py-px md:px-[4.5px] md:py-[1.5px] lg:px-[3px] lg:py-px rounded-[3px] md:rounded-[4.5px] lg:rounded-[3px]"
                       >
                         <span
-                          class="font-akrobat font-bold text-[7px] leading-[9px] text-[#223342] whitespace-nowrap"
+                          class="font-akrobat font-bold text-[7px] leading-[9px] md:text-[10.5px] md:leading-[13.5px] text-[#223342] whitespace-nowrap lg:text-[7px] lg:leading-[9px]"
                           >1 000 м²</span
                         >
                       </div>
                     </div>
                     <span
-                      class="font-unbounded font-bold text-[14px] leading-[14px] text-[#223342] tracking-[-0.28px] uppercase whitespace-nowrap num-features"
+                      class="font-unbounded font-bold text-[14px] leading-[14px] md:text-[21px] md:leading-[21px] lg:text-[14px] lg:leading-[14px] text-[#223342] tracking-[-0.28px] md:tracking-[-0.42px] lg:tracking-[-0.28px] uppercase whitespace-nowrap num-features"
                       >68 453 200 ₽</span
                     >
                   </div>
-                  <div class="flex flex-col gap-[2px]">
-                    <div class="flex items-center gap-[3px]">
+                  <div
+                    class="flex flex-col gap-[2px] md:gap-[3px] lg:gap-[2px]"
+                  >
+                    <div
+                      class="flex items-center gap-[3px] md:gap-[4.5px] lg:gap-[3px]"
+                    >
                       <span
-                        class="w-[3px] h-[3px] rounded-full bg-[#3652CE] flex-shrink-0"
+                        class="w-[3px] h-[3px] md:w-[4.5px] md:h-[4.5px] lg:w-[3px] lg:h-[3px] rounded-full bg-[#3652CE] flex-shrink-0"
                       ></span>
                       <span
-                        class="font-akrobat font-bold text-[7px] leading-[9px] text-[#223342] whitespace-nowrap overflow-hidden text-ellipsis"
+                        class="font-akrobat font-bold text-[7px] leading-[9px] md:text-[10.5px] md:leading-[13.5px] text-[#223342] whitespace-nowrap lg:text-[7px] lg:leading-[9px] overflow-hidden text-ellipsis"
                         >Фрунзенская</span
                       >
                     </div>
                     <p
-                      class="font-akrobat font-semibold text-[7px] leading-[9px] text-[#808080] whitespace-nowrap overflow-hidden text-ellipsis"
+                      class="font-akrobat font-semibold text-[7px] leading-[9px] md:text-[10.5px] md:leading-[13.5px] text-[#808080] whitespace-nowrap overflow-hidden text-ellipsis lg:text-[7px] lg:leading-[9px]"
                     >
                       Санкт-Петербург, Коломяжский проспект, 15к2
                     </p>
@@ -2426,9 +2489,11 @@
                 </div>
               </div>
               <div
-                class="bg-white rounded-tl-[16px] rounded-tr-[16px] rounded-bl-[8px] rounded-br-[8px] w-[164px] flex flex-col gap-2 pt-1 px-1 pb-2 relative flex-shrink-0"
+                class="bg-white rounded-tl-[16px] rounded-tr-[16px] rounded-bl-[8px] rounded-br-[8px] md:rounded-tl-[24px] md:rounded-tr-[24px] md:rounded-bl-[12px] md:rounded-br-[12px] lg:rounded-tl-[16px] lg:rounded-tr-[16px] lg:rounded-bl-[8px] lg:rounded-br-[8px] w-[164px] md:w-[246px] lg:w-[164px] flex flex-col gap-2 md:gap-3 lg:gap-2 pt-1 px-1 pb-2 md:pt-[6px] md:px-[6px] md:pb-3 lg:pt-1 lg:px-1 lg:pb-2 relative flex-shrink-0"
               >
-                <div class="h-[120px] rounded-[12px] overflow-hidden relative">
+                <div
+                  class="h-[120px] md:h-[180px] lg:h-[120px] rounded-[12px] md:rounded-[18px] lg:rounded-[12px] overflow-hidden relative"
+                >
                   <img
                     src="./assets/images/objects-1.png"
                     alt=""
@@ -2459,39 +2524,47 @@
                     >
                   </div>
                 </div>
-                <div class="flex flex-col gap-2 px-1">
-                  <div class="flex flex-col gap-1">
-                    <div class="flex items-center gap-[3px]">
+                <div
+                  class="flex flex-col gap-2 md:gap-3 lg:gap-2 px-1 md:px-[6px] lg:px-1"
+                >
+                  <div class="flex flex-col gap-1 md:gap-[6px] lg:gap-1">
+                    <div
+                      class="flex items-center gap-[3px] md:gap-[4.5px] lg:gap-[3px]"
+                    >
                       <span
-                        class="font-akrobat font-semibold text-[7px] leading-[9px] text-[#223342] whitespace-nowrap"
+                        class="font-akrobat font-semibold text-[7px] leading-[9px] md:text-[10.5px] md:leading-[13.5px] lg:text-[7px] lg:leading-[9px] text-[#223342] whitespace-nowrap lg:text-[7px] lg:leading-[9px]"
                         >Помещение</span
                       >
                       <div
-                        class="bg-[#f0f0f2] flex items-center justify-center px-[3px] py-px rounded-[3px] h-3"
+                        class="bg-[#f0f0f2] flex items-center justify-center px-[3px] py-px md:px-[4.5px] md:py-[1.5px] lg:px-[3px] lg:py-px rounded-[3px] md:rounded-[4.5px] lg:rounded-[3px]"
                       >
                         <span
-                          class="font-akrobat font-bold text-[7px] leading-[9px] text-[#223342] whitespace-nowrap"
+                          class="font-akrobat font-bold text-[7px] leading-[9px] md:text-[10.5px] md:leading-[13.5px] text-[#223342] whitespace-nowrap lg:text-[7px] lg:leading-[9px]"
                           >1 000 м²</span
                         >
                       </div>
                     </div>
                     <span
-                      class="font-unbounded font-bold text-[14px] leading-[14px] text-[#223342] tracking-[-0.28px] uppercase whitespace-nowrap num-features"
+                      class="font-unbounded font-bold text-[14px] leading-[14px] md:text-[21px] md:leading-[21px] lg:text-[14px] lg:leading-[14px] text-[#223342] tracking-[-0.28px] md:tracking-[-0.42px] lg:tracking-[-0.28px] uppercase whitespace-nowrap num-features"
                       >68 453 200 ₽</span
                     >
                   </div>
-                  <div class="flex flex-col gap-[2px]">
-                    <div class="flex items-center gap-[3px]">
+                  <div
+                    class="flex flex-col gap-[2px] md:gap-[3px] lg:gap-[2px]"
+                  >
+                    <div
+                      class="flex items-center gap-[3px] md:gap-[4.5px] lg:gap-[3px]"
+                    >
                       <span
-                        class="w-[3px] h-[3px] rounded-full bg-[#3652CE] flex-shrink-0"
+                        class="w-[3px] h-[3px] md:w-[4.5px] md:h-[4.5px] lg:w-[3px] lg:h-[3px] rounded-full bg-[#3652CE] flex-shrink-0"
                       ></span>
                       <span
-                        class="font-akrobat font-bold text-[7px] leading-[9px] text-[#223342] whitespace-nowrap overflow-hidden text-ellipsis"
+                        class="font-akrobat font-bold text-[7px] leading-[9px] md:text-[10.5px] md:leading-[13.5px] text-[#223342] whitespace-nowrap lg:text-[7px] lg:leading-[9px] overflow-hidden text-ellipsis"
                         >Фрунзенская</span
                       >
                     </div>
                     <p
-                      class="font-akrobat font-semibold text-[7px] leading-[9px] text-[#808080] whitespace-nowrap overflow-hidden text-ellipsis"
+                      class="font-akrobat font-semibold text-[7px] leading-[9px] md:text-[10.5px] md:leading-[13.5px] text-[#808080] whitespace-nowrap overflow-hidden text-ellipsis lg:text-[7px] lg:leading-[9px]"
                     >
                       Санкт-Петербург, Коломяжский проспект, 15к2
                     </p>
@@ -2499,9 +2572,11 @@
                 </div>
               </div>
               <div
-                class="bg-white rounded-tl-[16px] rounded-tr-[16px] rounded-bl-[8px] rounded-br-[8px] w-[164px] flex flex-col gap-2 pt-1 px-1 pb-2 relative flex-shrink-0"
+                class="bg-white rounded-tl-[16px] rounded-tr-[16px] rounded-bl-[8px] rounded-br-[8px] md:rounded-tl-[24px] md:rounded-tr-[24px] md:rounded-bl-[12px] md:rounded-br-[12px] lg:rounded-tl-[16px] lg:rounded-tr-[16px] lg:rounded-bl-[8px] lg:rounded-br-[8px] w-[164px] md:w-[246px] lg:w-[164px] flex flex-col gap-2 md:gap-3 lg:gap-2 pt-1 px-1 pb-2 md:pt-[6px] md:px-[6px] md:pb-3 lg:pt-1 lg:px-1 lg:pb-2 relative flex-shrink-0"
               >
-                <div class="h-[120px] rounded-[12px] overflow-hidden relative">
+                <div
+                  class="h-[120px] md:h-[180px] lg:h-[120px] rounded-[12px] md:rounded-[18px] lg:rounded-[12px] overflow-hidden relative"
+                >
                   <img
                     src="./assets/images/objects-1.png"
                     alt=""
@@ -2532,39 +2607,47 @@
                     >
                   </div>
                 </div>
-                <div class="flex flex-col gap-2 px-1">
-                  <div class="flex flex-col gap-1">
-                    <div class="flex items-center gap-[3px]">
+                <div
+                  class="flex flex-col gap-2 md:gap-3 lg:gap-2 px-1 md:px-[6px] lg:px-1"
+                >
+                  <div class="flex flex-col gap-1 md:gap-[6px] lg:gap-1">
+                    <div
+                      class="flex items-center gap-[3px] md:gap-[4.5px] lg:gap-[3px]"
+                    >
                       <span
-                        class="font-akrobat font-semibold text-[7px] leading-[9px] text-[#223342] whitespace-nowrap"
+                        class="font-akrobat font-semibold text-[7px] leading-[9px] md:text-[10.5px] md:leading-[13.5px] lg:text-[7px] lg:leading-[9px] text-[#223342] whitespace-nowrap lg:text-[7px] lg:leading-[9px]"
                         >Помещение</span
                       >
                       <div
-                        class="bg-[#f0f0f2] flex items-center justify-center px-[3px] py-px rounded-[3px] h-3"
+                        class="bg-[#f0f0f2] flex items-center justify-center px-[3px] py-px md:px-[4.5px] md:py-[1.5px] lg:px-[3px] lg:py-px rounded-[3px] md:rounded-[4.5px] lg:rounded-[3px]"
                       >
                         <span
-                          class="font-akrobat font-bold text-[7px] leading-[9px] text-[#223342] whitespace-nowrap"
+                          class="font-akrobat font-bold text-[7px] leading-[9px] md:text-[10.5px] md:leading-[13.5px] text-[#223342] whitespace-nowrap lg:text-[7px] lg:leading-[9px]"
                           >1 000 м²</span
                         >
                       </div>
                     </div>
                     <span
-                      class="font-unbounded font-bold text-[14px] leading-[14px] text-[#223342] tracking-[-0.28px] uppercase whitespace-nowrap num-features"
+                      class="font-unbounded font-bold text-[14px] leading-[14px] md:text-[21px] md:leading-[21px] lg:text-[14px] lg:leading-[14px] text-[#223342] tracking-[-0.28px] md:tracking-[-0.42px] lg:tracking-[-0.28px] uppercase whitespace-nowrap num-features"
                       >68 453 200 ₽</span
                     >
                   </div>
-                  <div class="flex flex-col gap-[2px]">
-                    <div class="flex items-center gap-[3px]">
+                  <div
+                    class="flex flex-col gap-[2px] md:gap-[3px] lg:gap-[2px]"
+                  >
+                    <div
+                      class="flex items-center gap-[3px] md:gap-[4.5px] lg:gap-[3px]"
+                    >
                       <span
-                        class="w-[3px] h-[3px] rounded-full bg-[#3652CE] flex-shrink-0"
+                        class="w-[3px] h-[3px] md:w-[4.5px] md:h-[4.5px] lg:w-[3px] lg:h-[3px] rounded-full bg-[#3652CE] flex-shrink-0"
                       ></span>
                       <span
-                        class="font-akrobat font-bold text-[7px] leading-[9px] text-[#223342] whitespace-nowrap overflow-hidden text-ellipsis"
+                        class="font-akrobat font-bold text-[7px] leading-[9px] md:text-[10.5px] md:leading-[13.5px] text-[#223342] whitespace-nowrap lg:text-[7px] lg:leading-[9px] overflow-hidden text-ellipsis"
                         >Фрунзенская</span
                       >
                     </div>
                     <p
-                      class="font-akrobat font-semibold text-[7px] leading-[9px] text-[#808080] whitespace-nowrap overflow-hidden text-ellipsis"
+                      class="font-akrobat font-semibold text-[7px] leading-[9px] md:text-[10.5px] md:leading-[13.5px] text-[#808080] whitespace-nowrap overflow-hidden text-ellipsis lg:text-[7px] lg:leading-[9px]"
                     >
                       Санкт-Петербург, Коломяжский проспект, 15к2
                     </p>
@@ -2585,11 +2668,13 @@
           class="flex flex-col gap-2 items-center text-center text-[#223342] max-w-[589px] js-animate anim-up"
         >
           <h2
-            class="font-unbounded font-bold text-[32px] leading-[38px] uppercase"
+            class="font-unbounded font-bold text-[24px] leading-7 uppercase lg:text-[32px] lg:leading-[38px]"
           >
             Мы не скрываемся<br />за логотипом
           </h2>
-          <p class="font-akrobat font-bold text-[18px] leading-[22px]">
+          <p
+            class="font-akrobat font-bold text-[16px] leading-5 lg:text-[18px] lg:leading-[22px]"
+          >
             Взаимное доверие строится на личном общении.<br />
             Мы несем ответственность за вашу сделку и всегда на связи
           </p>
@@ -3057,19 +3142,20 @@
       </section>
 
       <section
-        class="mt-20 lg:mt-40 relative lg:pb-[100px]"
+        class="mt-20 lg:mt-40 relative pt-16 md:pt-[200px] lg:pt-0 lg:pb-[100px]"
         aria-label="Чек-лист"
       >
         <div
-          class="bg-[#f4f2f7] rounded-[24px] h-auto p-6 relative flex flex-col gap-6 js-animate anim-up md:p-8 lg:flex-row lg:items-start lg:gap-4 lg:h-[400px] lg:p-10"
+          class="bg-[#f4f2f7] rounded-[24px] h-auto p-4 pb-6 relative flex flex-col gap-6 js-animate anim-up lg:flex-row lg:items-start lg:gap-4 lg:h-[400px] lg:p-10 lg:pb-10"
         >
-          <div class="block lg:hidden relative w-full" style="height: 280px">
+          <div
+            class="lg:hidden relative w-full h-[312px] md:h-[400px]"
+            aria-hidden="true"
+          >
             <div
+              class="w-[66%] left-[1%] bottom-[26%] md:w-[50%] md:left-[5%]"
               style="
                 position: absolute;
-                left: 4%;
-                top: 0;
-                width: 52%;
                 transform: rotate(-4.47deg);
                 z-index: 2;
                 border-radius: 6px;
@@ -3087,11 +3173,9 @@
               />
             </div>
             <div
+              class="w-[61%] right-[-10%] bottom-[10%] md:w-[50%] md:right-[9%]"
               style="
                 position: absolute;
-                right: 2%;
-                top: 24px;
-                width: 52%;
                 transform: rotate(8.03deg);
                 z-index: 1;
                 border-radius: 6px;
@@ -3111,12 +3195,14 @@
           <div class="flex flex-col justify-between h-auto lg:h-full">
             <div class="flex flex-col gap-4 text-[#223342]">
               <h2
-                class="font-unbounded font-bold text-[32px] leading-[38px] uppercase"
+                class="font-unbounded font-bold text-[24px] leading-7 uppercase text-center lg:text-left lg:text-[32px] lg:leading-[38px]"
               >
                 Как проверить<br />коммерческое<br />помещение<br />перед
                 покупкой
               </h2>
-              <p class="font-akrobat font-bold text-[18px] leading-[22px]">
+              <p
+                class="font-akrobat font-bold text-[16px] leading-5 text-center lg:text-left lg:text-[18px] lg:leading-[22px]"
+              >
                 Мы ценим честность и профессионализм. Поэтому просто делимся
                 своим опытом.<br />
                 Скачайте чек-лист и узнайте как проверить коммерческое помещение
@@ -3126,7 +3212,7 @@
             <a
               href="#"
               target="_blank"
-              class="bg-primary flex items-center justify-center gap-6 px-10 py-6 rounded-[12px] w-full hover:bg-[#662966] transition-all duration-300 lg:w-[320px]"
+              class="bg-primary flex items-center justify-center gap-6 px-10 py-6 rounded-[12px] mt-6 w-full hover:bg-[#662966] transition-all duration-300 lg:w-[320px] lg:mt-auto"
             >
               <span
                 class="font-akrobat font-bold text-[18px] leading-[22px] text-white whitespace-nowrap"
@@ -3205,16 +3291,18 @@
         </div>
       </section>
 
-      <section id="contacts" class="mt-20 lg:mt-40 mb-8" aria-label="Контакты">
+      <section
+        id="contacts"
+        class="mt-20 mb-20 lg:mt-40 lg:mb-8"
+        aria-label="Контакты"
+      >
         <div
-          class="bg-[#f4f2f7] rounded-[24px] flex flex-col justify-between gap-10 p-6 md:p-10 lg:h-[540px] lg:p-16 lg:gap-0 js-animate anim-up"
+          class="bg-[#f4f2f7] rounded-[24px] flex flex-col justify-between gap-4 p-8 lg:h-[540px] lg:p-16 lg:gap-0 js-animate anim-up"
         >
           <div
-            class="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between"
+            class="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between"
           >
-            <div
-              class="flex flex-col gap-8 w-full lg:gap-16 lg:w-[488px]"
-            >
+            <div class="flex flex-col gap-8 w-full lg:gap-16 lg:w-[488px]">
               <div class="h-20 hidden lg:block">
                 <img
                   src="./assets/images/logo.svg"
@@ -3222,17 +3310,17 @@
                   class="h-full w-auto"
                 />
               </div>
-              <div class="flex flex-col gap-8">
+              <div class="flex flex-col gap-6 lg:gap-8">
                 <div class="flex flex-col gap-2">
                   <a
                     href="tel:89851468908"
-                    class="w-fit font-unbounded font-bold text-[28px] leading-[34px] text-[#223342] uppercase num-features hover:text-[#813481] transition-all duration-300 lg:text-[40px] lg:leading-[40px]"
+                    class="w-fit font-unbounded font-bold text-[24px] leading-8 text-[#223342] uppercase num-features hover:text-[#813481] transition-all duration-300 md:text-[48px] md:leading-[56px] lg:text-[40px] lg:leading-[40px]"
                   >
                     8 985 146 89 08
                   </a>
                   <a
                     href="mailto:hello@kord.ru"
-                    class="w-fit font-unbounded font-medium text-[24px] leading-8 text-[#223342] opacity-50 num-features hover:opacity-100 hover:underline transition-all duration-300"
+                    class="w-fit font-unbounded font-medium text-[18px] leading-6 text-[#223342] opacity-50 num-features hover:opacity-100 hover:underline transition-all duration-300 md:text-[24px] md:leading-8"
                   >
                     hello@kord.ru
                   </a>
@@ -3369,11 +3457,11 @@
           </div>
 
           <div
-            class="flex flex-col items-center gap-4 lg:flex-row lg:items-center lg:justify-between"
+            class="flex flex-col items-center gap-12 lg:flex-row lg:items-center lg:justify-between"
           >
             <a
               href="https://yandex.com/maps/2/saint-petersburg/house/kolomyazhskiy_prospekt_15k2/Z0kYdA5pSkcGQFhqfXxxcHpkZQ==/?ll=30.299321%2C60.001671&z=16"
-              class="font-akrobat font-semibold text-[18px] leading-[22px] text-[#223342] opacity-50 hover:opacity-100 hover:underline transition-all duration-300 text-center lg:text-left"
+              class="font-akrobat font-semibold text-[16px] leading-[20px] text-[#223342] opacity-50 hover:opacity-100 hover:underline transition-all duration-300 text-center lg:text-left lg:text-[18px] lg:leading-[22px]"
             >
               Санкт-Петербург, Коломяжский проспект, 15к2
             </a>
@@ -3399,10 +3487,10 @@
         </div>
 
         <div
-          class="flex flex-col gap-4 items-center mt-8 px-4 md:flex-row md:items-start md:justify-between"
+          class="flex flex-col gap-6 items-center mt-10 lg:flex-row lg:items-start lg:justify-between lg:px-4 lg:mt-8"
         >
           <p
-            class="font-akrobat text-[14px] leading-4 text-[#223342] opacity-50 max-w-[800px] text-center md:text-left"
+            class="font-akrobat text-[14px] leading-4 text-[#223342] opacity-50 max-w-[800px] text-center lg:text-left"
           >
             Любая информация, представленная на данном сайте, ни при каких
             условиях не является публичной офертой, определяемой положениями
@@ -3464,19 +3552,23 @@
 
     <div
       id="modal-overlay"
-      class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 hidden"
+      class="fixed inset-0 z-50 bg-black/60 hidden overflow-y-auto"
       role="dialog"
       aria-modal="true"
       aria-label="Оставить заявку"
     >
-      <div
-        id="modal-container"
-        class="bg-white rounded-[32px] overflow-hidden flex w-full max-w-[730px] mx-6"
-      >
-        <div id="modal-form" class="flex w-full">
-          <div class="hidden md:flex items-stretch p-2 flex-shrink-0">
+      <div class="flex min-h-full items-center justify-center p-4 md:p-6">
+        <div
+          id="modal-container"
+          class="w-full max-w-[343px] md:max-w-[595px] lg:max-w-[730px] lg:bg-white lg:rounded-[32px] lg:overflow-hidden"
+        >
+          <!-- ФОРМА -->
+          <!-- DOM: [изображение][форма] — flex-col-reverse → форма сверху, изображение снизу; lg:flex-row → изображение слева, форма справа -->
+          <div id="modal-form" class="flex flex-col-reverse lg:flex-row">
+
+            <!-- Изображение + контакты -->
             <div
-              class="relative w-[300px] rounded-[24px] overflow-hidden flex flex-col justify-end p-4"
+              class="relative rounded-[24px] overflow-hidden h-[370px] lg:h-auto flex flex-col justify-start md:justify-end lg:justify-end lg:m-2 lg:w-[300px] lg:flex-shrink-0 p-3 lg:p-4"
             >
               <img
                 src="./assets/images/modal-img.png"
@@ -3484,9 +3576,9 @@
                 class="absolute inset-0 w-full h-full object-cover pointer-events-none"
               />
               <div
-                class="relative z-10 bg-white rounded-[24px] p-6 flex flex-col gap-6"
+                class="relative z-10 bg-white rounded-[20px] lg:rounded-[24px] p-6 flex flex-col gap-4 lg:gap-6 w-full"
               >
-                <div class="h-12">
+                <div class="h-12 w-[165px]">
                   <img
                     src="./assets/images/logo.svg"
                     alt="КОРД"
@@ -3500,15 +3592,29 @@
                     >
                       Офис продаж
                     </p>
-                    <a
-                      href="tel:89851468908"
-                      class="w-fit font-unbounded font-bold text-[20px] leading-6 uppercase num-features hover:text-[#813481] transition-all duration-300"
-                    >
-                      8 985 146 89 08
-                    </a>
+                    <div class="flex items-center justify-between gap-4 lg:block">
+                      <a
+                        href="tel:89851468908"
+                        class="font-unbounded font-bold text-[20px] md:text-[36px] lg:text-[20px] leading-6 md:leading-10 lg:leading-6 uppercase num-features hover:text-[#813481] transition-all duration-300"
+                      >
+                        8 985 146 89 08
+                      </a>
+                      <a
+                        href="tel:89851468908"
+                        class="lg:hidden flex-shrink-0 w-10 h-10 bg-[#f4f2f7] rounded-[12px] flex items-center justify-center"
+                        aria-label="Позвонить"
+                      >
+                        <img
+                          src="https://www.figma.com/api/mcp/asset/9d6ea421-4bf7-4238-9a00-1cd1f2c08cba"
+                          alt=""
+                          class="w-6 h-6"
+                        />
+                      </a>
+                    </div>
                     <a
                       href="mailto:hello@kord.ru"
                       class="w-fit font-unbounded font-medium text-[14px] leading-[22px] opacity-50 num-features hover:opacity-100 hover:underline transition-all duration-300"
+                      style="font-feature-settings: 'lnum' 1, 'tnum' 1"
                     >
                       hello@kord.ru
                     </a>
@@ -3522,108 +3628,112 @@
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="relative flex flex-col gap-6 p-10 flex-1">
-            <button
-              class="absolute top-4 right-4 w-7 h-7 flex items-center justify-center"
-              onclick="closeModal()"
-              aria-label="Закрыть"
+            <!-- Форма -->
+            <div
+              class="relative bg-white rounded-[24px] lg:rounded-none flex flex-col gap-4 lg:gap-6 px-4 py-6 lg:p-10 lg:flex-1"
             >
-              <img
-                src="https://www.figma.com/api/mcp/asset/9e7b7a4f-b487-4ef9-a322-cc5bec7ad3dd"
-                alt=""
-                class="w-full h-full"
-              />
-            </button>
+              <button
+                class="absolute top-4 right-4 w-7 h-7 flex items-center justify-center"
+                onclick="closeModal()"
+                aria-label="Закрыть"
+              >
+                <img
+                  src="https://www.figma.com/api/mcp/asset/d3c499a1-b4c2-4b1e-8a29-5586abc8f459"
+                  alt=""
+                  class="w-full h-full"
+                />
+              </button>
 
-            <h3
-              class="font-unbounded font-bold text-[32px] leading-[38px] text-primary uppercase"
-            >
-              Оставьте<br />заявку
-            </h3>
+              <h3
+                class="font-unbounded font-bold text-[24px] lg:text-[32px] leading-7 lg:leading-[38px] text-primary uppercase"
+              >
+                Оставьте<br />заявку
+              </h3>
 
-            <div class="flex flex-col gap-10 w-[330px]">
-              <div class="flex flex-col gap-4">
-                <p
-                  class="font-akrobat font-bold text-[18px] leading-[22px] text-[#223342]"
-                >
-                  Оставьте ваш номер телефона, чтобы получить консультацию или
-                  рассчитать ипотеку
-                </p>
-                <div
-                  class="kord-input-wrap relative bg-[#f4f2f7] h-14 w-full rounded-[12px]"
-                >
-                  <input
-                    id="phone-input"
-                    type="tel"
-                    autocomplete="tel"
-                    placeholder=" "
-                    class="kord-input peer absolute inset-0 w-full h-full pt-[22px] pb-[6px] px-4 rounded-[12px] bg-transparent font-akrobat font-bold text-[18px] leading-[22px] text-[#223342] border-none outline-none"
-                  />
-                  <label
-                    for="phone-input"
-                    class="absolute left-4 top-1/2 -translate-y-1/2 font-akrobat font-bold text-[18px] leading-[22px] text-[#a7a9ac] pointer-events-none transition-all duration-150 peer-focus:top-[7px] peer-focus:translate-y-0 peer-focus:text-[12px] peer-focus:leading-4 peer-[:not(:placeholder-shown)]:top-[7px] peer-[:not(:placeholder-shown)]:translate-y-0 peer-[:not(:placeholder-shown)]:text-[12px] peer-[:not(:placeholder-shown)]:leading-4"
+              <div class="flex flex-col gap-6 lg:gap-10 w-full lg:w-[330px]">
+                <div class="flex flex-col gap-4">
+                  <p
+                    class="font-akrobat font-bold text-[16px] lg:text-[18px] leading-5 lg:leading-[22px] text-[#223342]"
                   >
-                    Номер телефона
+                    Оставьте ваш номер телефона, чтобы получить консультацию или
+                    рассчитать ипотеку
+                  </p>
+                  <div
+                    class="kord-input-wrap relative bg-[#f4f2f7] h-14 w-full rounded-[12px]"
+                  >
+                    <input
+                      id="phone-input"
+                      type="tel"
+                      autocomplete="tel"
+                      placeholder=" "
+                      class="kord-input peer absolute inset-0 w-full h-full pt-[22px] pb-[6px] px-4 rounded-[12px] bg-transparent font-akrobat font-bold text-[18px] leading-[22px] text-[#223342] border-none outline-none"
+                    />
+                    <label
+                      for="phone-input"
+                      class="absolute left-4 top-1/2 -translate-y-1/2 font-akrobat font-bold text-[18px] leading-[22px] text-[#a7a9ac] pointer-events-none transition-all duration-150 peer-focus:top-[7px] peer-focus:translate-y-0 peer-focus:text-[12px] peer-focus:leading-4 peer-[:not(:placeholder-shown)]:top-[7px] peer-[:not(:placeholder-shown)]:translate-y-0 peer-[:not(:placeholder-shown)]:text-[12px] peer-[:not(:placeholder-shown)]:leading-4"
+                    >
+                      Номер телефона
+                    </label>
+                  </div>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                  <button
+                    id="modal-submit"
+                    type="button"
+                    class="bg-primary text-white font-akrobat font-bold text-[18px] leading-[22px] px-5 py-4 rounded-[12px] w-full hover:bg-[#662966] transition-all duration-300"
+                  >
+                    Записаться на встречу
+                  </button>
+                  <label
+                    class="flex items-start gap-2 cursor-pointer select-none"
+                  >
+                    <div class="pt-[2px] flex-shrink-0">
+                      <input
+                        id="agree-check"
+                        type="checkbox"
+                        class="custom-checkbox"
+                      />
+                    </div>
+                    <p
+                      class="font-akrobat font-semibold text-[16px] leading-5 text-[#223342]"
+                    >
+                      <span class="opacity-50"
+                        >Я даю согласие на обработку моих персональных данных
+                        согласно </span
+                      ><a
+                        href="#"
+                        class="text-[#223342] underline-offset-2 hover:underline transition-all duration-300"
+                        >Политике конфиденциальности</a
+                      >
+                    </p>
                   </label>
                 </div>
               </div>
-
-              <div class="flex flex-col gap-4">
-                <button
-                  id="modal-submit"
-                  type="button"
-                  class="bg-primary text-white font-akrobat font-bold text-[18px] leading-[22px] px-5 py-4 rounded-[12px] w-full hover:bg-[#662966] transition-all duration-300"
-                >
-                  Записаться на встречу
-                </button>
-                <label
-                  class="flex items-start gap-2 cursor-pointer select-none"
-                >
-                  <div class="pt-[2px] flex-shrink-0">
-                    <input
-                      id="agree-check"
-                      type="checkbox"
-                      class="custom-checkbox"
-                    />
-                  </div>
-                  <p
-                    class="font-akrobat font-semibold text-[16px] leading-5 text-[#223342]"
-                  >
-                    <span class="opacity-50"
-                      >Я даю согласие на обработку моих персональных данных
-                      согласно </span
-                    ><a
-                      href="#"
-                      class="text-[#223342] underline-offset-2 hover:underline transition-all duration-300"
-                      >Политике конфиденциальности</a
-                    >
-                  </p>
-                </label>
-              </div>
             </div>
           </div>
-        </div>
 
-        <div
-          id="modal-success"
-          class="hidden flex-col gap-10 px-10 py-20 w-full items-center"
-        >
-          <h3
-            class="font-unbounded font-bold text-[24px] leading-7 text-primary uppercase text-center w-[343px]"
+          <!-- УСПЕХ -->
+          <div
+            id="modal-success"
+            class="hidden flex-col gap-10 items-center justify-center bg-white rounded-[24px] lg:rounded-none px-6 py-10 md:py-[120px] lg:px-10 lg:py-20 w-full"
           >
-            Спасибо за<br />ваше обращение
-          </h3>
-          <div class="flex items-center justify-center w-full">
-            <div
-              class="w-16 h-16 bg-[#f4f2f7] rounded-full flex items-center justify-center"
+            <h3
+              class="font-unbounded font-bold text-[18px] md:text-[24px] leading-6 md:leading-7 text-primary uppercase text-center w-[240px] md:w-[400px] lg:w-[343px]"
             >
-              <img
-                src="https://www.figma.com/api/mcp/asset/cad10f05-5b84-4e16-9c7d-cb1f8b1350a5"
-                alt=""
-                class="w-8 h-8"
-              />
+              Спасибо за<br />ваше обращение
+            </h3>
+            <div class="flex items-center justify-center w-full">
+              <div
+                class="w-16 h-16 bg-[#f4f2f7] rounded-full flex items-center justify-center"
+              >
+                <img
+                  src="https://www.figma.com/api/mcp/asset/15102bdd-cb0e-4bc8-9708-c41eebf3d7c7"
+                  alt=""
+                  class="w-8 h-8"
+                />
+              </div>
             </div>
           </div>
         </div>

@@ -18,19 +18,3 @@ header nav {
   height: auto;
 }
 
-@media (min-width: 1024px) {
-  .service-row > div:first-child {
-    flex: 1;
-    margin-right: -2rem;
-    margin-bottom: 0;
-  }
-
-  .service-row > div:last-child {
-    flex: 1;
-    border-radius: 0 24px 24px 0;
-    margin-right: -2rem;
-    padding-left: 4rem;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-  }
-}
