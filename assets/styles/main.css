@@ -1,4 +1,28 @@
 @font-face {
+  font-family: "Unbounded";
+  src: url("../fonts/Unbounded-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Unbounded";
+  src: url("../fonts/Unbounded-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Unbounded";
+  src: url("../fonts/Unbounded-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: "Akrobat";
   src: url("../fonts/Akrobat-Regular.woff2") format("woff2");
   font-weight: 400;
@@ -28,6 +52,40 @@
   font-weight: 900;
   font-style: normal;
   font-display: swap;
+}
+
+html {
+  scroll-padding-top: 80px;
+}
+
+@media (min-width: 768px) {
+  html {
+    scroll-padding-top: 90px;
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    scroll-padding-top: 100px;
+  }
+}
+
+.kord-main {
+  padding-top: 6px;
+  padding-left: 16px;
+  padding-right: 16px;
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 1024px) {
+  .kord-main {
+    padding-top: 96px;
+    padding-left: 40px;
+    padding-right: 40px;
+    overflow-x: hidden;
+  }
 }
 
 *,
@@ -114,6 +172,9 @@ body.modal-open {
 /* MODAL TRANSITION */
 #modal-overlay {
   opacity: 0;
+  background: rgba(48, 48, 48, 0.2);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   pointer-events: none;
 }
@@ -132,10 +193,113 @@ body.modal-open {
   transform: translateY(0) scale(1);
 }
 
+/* MOBILE MENU OVERLAY */
+#menu-overlay {
+  opacity: 0;
+  background: rgba(48, 48, 48, 0.2);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+#menu-overlay.is-open {
+  opacity: 1;
+  pointer-events: all;
+  z-index: 20;
+}
+
+/* TEXT MAX-WIDTH (вместо <br> и span.block) */
+
+/* Кнопка "Обсудить задачу" в hero-карточке */
+.hero-discuss-text {
+  max-width: 130px;
+}
+
+/* "ВЫБОР КОРД" в баннере объектов */
+.objects-banner-title {
+  max-width: min-content;
+}
+
+/* Заголовки кейсов ("Земля на миллиард", "Полевые работы в ЛО") */
+.case-card-title {
+  max-width: 160px; /* mobile: 18px шрифт */
+}
+@media (min-width: 1024px) {
+  .case-card-title {
+    max-width: 220px; /* desktop: 26px шрифт */
+  }
+}
+
+/* "Хотите список актуальных лотов с торгов?" */
+.torgi-cta-title {
+  max-width: 100%;
+}
+@media (min-width: 1024px) {
+  .torgi-cta-title {
+    max-width: 340px;
+  }
+}
+
+/* "Мы не скрываемся / за логотипом" */
+.team-heading {
+  max-width: 589px;
+}
+
+/* "Оставьте заявку" — 2 строки на мобилке, 1 на планшете+ */
+.form-section-title {
+  max-width: 220px;
+}
+@media (min-width: 768px) {
+  .form-section-title {
+    max-width: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .check-list-title {
+    max-width: 387px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .check-list-desc {
+    max-width: 604px;
+  }
+}
+
+/* "Спасибо за ваше обращение" */
+.success-modal-title {
+  max-width: 240px;
+}
+@media (min-width: 768px) {
+  .success-modal-title {
+    max-width: 400px;
+  }
+}
+@media (min-width: 1024px) {
+  .success-modal-title {
+    max-width: 343px;
+  }
+}
+
 /* PROPERTY CARD */
 .property-badge {
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
+}
+
+.property-card {
+  cursor: pointer;
+}
+
+.property-card img:first-child,
+.property-card > div:first-child img {
+  transition: transform 0.4s ease;
+}
+
+.property-card:hover > div:first-child img {
+  transform: scale(1.05);
 }
 
 /* CUSTOM CHECKBOX */
@@ -188,11 +352,45 @@ body.modal-open {
 }
 
 /* ШАПКА */
-header nav {
-  transition: all 0.3s ease;
+header {
+  width: calc(100% - 24px);
+  max-width: calc(1920px - 24px);
 }
 
-header.header-scrolled nav {
+@media (min-width: 768px) {
+  header {
+    width: calc(100% - 28px);
+    max-width: calc(1920px - 28px);
+  }
+}
+
+@media (min-width: 1024px) {
+  header {
+    width: calc(100% - 32px);
+    max-width: calc(1920px - 32px);
+  }
+}
+
+header nav {
+  transition: box-shadow 0.3s ease;
+}
+
+/* FULL-BLEED СЕКЦИЯ */
+.section-bleed {
+  margin-inline: -16px;
+}
+
+/* МОБИЛЬНОЕ МЕНЮ */
+.menu-glass {
+  background: rgba(170, 170, 170, 0.2);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+/* Мобильное меню: скролл при горизонтальной ориентации управляется через JS */
+
+header.header-scrolled nav,
+header.menu-open nav {
   box-shadow: 0 4px 36px -20px rgba(0, 0, 0, 0.6);
 }
 
@@ -216,6 +414,15 @@ header.header-scrolled nav {
 
 .kord-phone-btn:hover svg path {
   fill: #813481;
+}
+
+@media (max-width: 1023px) {
+  .kord-phone-btn g {
+    opacity: 1;
+  }
+  .kord-phone-btn svg path {
+    fill: #813481;
+  }
 }
 
 .kord-hamburger {
@@ -252,6 +459,14 @@ header.header-scrolled nav {
   stroke: #fff;
 }
 
+.btn-telegram,
+.btn-max,
+.btn-dzen,
+.btn-vk,
+.btn-odn {
+  transition: all 0.3s ease;
+}
+
 .btn-telegram:hover {
   background-color: #01a2dd;
 }
@@ -277,7 +492,8 @@ header.header-scrolled nav {
 }
 
 .kord-input-wrap:hover {
-  background: linear-gradient(rgba(129, 52, 129, 0.05), rgba(129, 52, 129, 0.05)), #f4f2f7;
+  background:
+    linear-gradient(rgba(129, 52, 129, 0.05), rgba(129, 52, 129, 0.05)), #f4f2f7;
 }
 
 .kord-input:focus {
@@ -299,4 +515,142 @@ header.header-scrolled nav {
 .btn-vk:hover svg path,
 .btn-odn:hover svg path {
   fill: #fff;
+}
+
+.phone-error-msg {
+  display: none;
+  position: absolute;
+  right: 16px;
+  top: 9px;
+  color: #ee0808;
+  font-family: "Akrobat", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.kord-input-wrap.phone-error .phone-error-msg {
+  display: block;
+}
+
+.btn-submit-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: default;
+}
+
+/* DOCS GROUP — mobile/tablet: centered */
+.docs-group {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 360px;
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+  .docs-group {
+    width: 571px;
+  }
+}
+
+/* DOCS GROUP — PC: right-aligned */
+.docs-group-pc {
+  position: absolute;
+  right: 115px;
+  bottom: 0;
+  width: 500px;
+  height: 100%;
+}
+
+/* Shared doc styles */
+.doc-front,
+.doc-back {
+  position: absolute;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Mobile doc positions */
+.docs-group .doc-front {
+  width: 225px;
+  left: 0;
+  bottom: 72px;
+  z-index: 2;
+  transform: rotate(-4.47deg);
+  box-shadow:
+    -10px -8px 64px -40px rgba(34, 51, 66, 0.35),
+    10px 10px 80px -50px rgba(34, 51, 66, 0.8);
+}
+
+.docs-group .doc-back {
+  width: 225px;
+  left: 105px;
+  bottom: 17px;
+  z-index: 1;
+  transform: rotate(8.03deg);
+  box-shadow: 0px 24px 64px -48px #223342;
+}
+
+/* Tablet doc positions */
+@media (min-width: 768px) {
+  .docs-group .doc-front {
+    width: 306px;
+    left: 0;
+    bottom: 92px;
+  }
+
+  .docs-group .doc-back {
+    width: 306px;
+    left: 207px;
+    bottom: 17px;
+  }
+}
+
+/* PC doc positions */
+.docs-group-pc .doc-front {
+  width: 360px;
+  left: 0;
+  bottom: -57px;
+  z-index: 2;
+  transform: rotate(-4.47deg);
+  box-shadow:
+    -18.961px -14.221px 127.986px -75.844px rgba(34, 51, 66, 0.35),
+    18.961px 18.961px 146.947px -94.805px rgba(34, 51, 66, 0.8);
+}
+
+.docs-group-pc .doc-back {
+  width: 360px;
+  left: 116px;
+  bottom: -112px;
+  z-index: 1;
+  transform: rotate(8.03deg);
+  box-shadow: 0px 44.897px 119.596px -89.792px #223342;
+}
+
+/* TEAM CARD HEIGHT — fluid per breakpoint range */
+.team-card-height {
+  height: clamp(400px, calc(400px + 200 * (100vw - 375px) / 392), 600px);
+}
+
+@media (min-width: 768px) {
+  .team-card-height {
+    height: clamp(400px, calc(400px + 200 * (100vw - 768px) / 255), 600px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .team-card-height {
+    height: 400px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .team-card-height {
+    height: clamp(400px, calc(400px + 200 * (100vw - 1440px) / 480), 600px);
+  }
 }

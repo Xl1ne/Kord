@@ -1,0 +1,11 @@
+{
+  "name": "kord-site",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "npx tailwindcss -i ./input.css -o ./assets/styles/tailwind.css --minify",
+    "watch": "npx tailwindcss -i ./input.css -o ./assets/styles/tailwind.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  }
+}

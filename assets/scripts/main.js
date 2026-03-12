@@ -5,29 +5,55 @@
 
   const barsIcon = hamburger.querySelector(".bars-icon");
   const crossIcon = hamburger.querySelector(".cross-icon");
+  const menuOverlay = document.getElementById("menu-overlay");
   let isOpen = false;
+
+  const headerEl2 = hamburger.closest("header");
 
   function openMenu() {
     isOpen = true;
-    menu.style.maxHeight = menu.scrollHeight + "px";
+    const maxH = Math.min(menu.scrollHeight, Math.floor(window.innerHeight * 0.85));
+    menu.style.maxHeight = maxH + "px";
+    menu.style.overflowY = "auto";
     menu.setAttribute("aria-hidden", "false");
     hamburger.setAttribute("aria-expanded", "true");
+    if (headerEl2) headerEl2.classList.add("menu-open");
     if (barsIcon) barsIcon.classList.add("hidden");
     if (crossIcon) crossIcon.classList.remove("hidden");
+    if (menuOverlay) {
+      menuOverlay.classList.remove("hidden");
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          menuOverlay.classList.add("is-open");
+        });
+      });
+    }
   }
 
   function closeMenu() {
     isOpen = false;
     menu.style.maxHeight = "0";
+    menu.style.overflowY = "hidden";
     menu.setAttribute("aria-hidden", "true");
     hamburger.setAttribute("aria-expanded", "false");
+    if (headerEl2) headerEl2.classList.remove("menu-open");
     if (barsIcon) barsIcon.classList.remove("hidden");
     if (crossIcon) crossIcon.classList.add("hidden");
+    if (menuOverlay) {
+      menuOverlay.classList.remove("is-open");
+      setTimeout(function () {
+        menuOverlay.classList.add("hidden");
+      }, 300);
+    }
   }
 
   hamburger.addEventListener("click", function () {
     isOpen ? closeMenu() : openMenu();
   });
+
+  if (menuOverlay) {
+    menuOverlay.addEventListener("click", closeMenu);
+  }
 
   menu.querySelectorAll(".mobile-menu-link").forEach(function (link) {
     link.addEventListener("click", closeMenu);
@@ -43,6 +69,8 @@ const modalContainer = document.getElementById("modal-container");
 const modalFormView = document.getElementById("modal-form");
 const modalSuccess = document.getElementById("modal-success");
 
+let successAutoCloseTimer = null;
+
 function openModal() {
   document.body.classList.add("modal-open");
   modalOverlay.classList.remove("hidden");
@@ -55,6 +83,10 @@ function openModal() {
 }
 
 function closeModal() {
+  if (successAutoCloseTimer) {
+    clearTimeout(successAutoCloseTimer);
+    successAutoCloseTimer = null;
+  }
   modalOverlay.classList.remove("is-open");
   document.body.classList.remove("modal-open");
   setTimeout(() => {
@@ -64,17 +96,24 @@ function closeModal() {
 
 function showModalForm() {
   modalFormView.classList.remove("hidden");
+  modalSuccess.classList.remove("flex");
   modalSuccess.classList.add("hidden");
 }
 
 function showModalSuccess() {
   modalFormView.classList.add("hidden");
   modalSuccess.classList.remove("hidden");
+  modalSuccess.classList.add("flex");
+  successAutoCloseTimer = setTimeout(closeModal, 4000);
 }
 
 if (modalOverlay) {
-  modalOverlay.addEventListener("click", function (e) {
-    if (e.target === modalOverlay) closeModal();
+  modalOverlay.addEventListener("click", closeModal);
+}
+
+if (modalContainer) {
+  modalContainer.addEventListener("click", (e) => {
+    e.stopPropagation();
   });
 }
 
@@ -90,28 +129,77 @@ document.addEventListener("keydown", function (e) {
 
 const submitBtn = document.getElementById("modal-submit");
 const phoneInput = document.getElementById("phone-input");
+const nameInput = document.getElementById("name-input");
 const agreeCheck = document.getElementById("agree-check");
+
+function isPhoneValid() {
+  if (!phoneInput) return false;
+  var digits = getDigits(phoneInput.value);
+  return digits.length === 10;
+}
+
+function showPhoneError(msg) {
+  var wrap = phoneInput && phoneInput.closest(".kord-input-wrap");
+  if (!wrap) return;
+  wrap.classList.add("phone-error");
+  var errEl = wrap.querySelector(".phone-error-msg");
+  if (errEl) errEl.textContent = msg;
+}
+
+function clearPhoneError() {
+  var wrap = phoneInput && phoneInput.closest(".kord-input-wrap");
+  if (!wrap) return;
+  wrap.classList.remove("phone-error");
+}
+
+function updateSubmitState() {
+  if (!submitBtn) return;
+  var phoneOk = isPhoneValid();
+  var agreeOk = !agreeCheck || agreeCheck.checked;
+  if (phoneOk && agreeOk) {
+    submitBtn.classList.remove("btn-submit-disabled");
+  } else {
+    submitBtn.classList.add("btn-submit-disabled");
+  }
+}
+
+if (phoneInput) {
+  phoneInput.addEventListener("input", function () {
+    if (isPhoneValid()) {
+      clearPhoneError();
+    }
+    updateSubmitState();
+  });
+}
+
+if (agreeCheck) {
+  agreeCheck.addEventListener("change", updateSubmitState);
+}
 
 if (submitBtn) {
   submitBtn.addEventListener("click", function () {
-    if (!phoneInput || !phoneInput.value.trim()) {
+    if (!isPhoneValid()) {
+      var digits = getDigits(phoneInput ? phoneInput.value : "");
+      showPhoneError(digits.length === 0 ? "Обязательное поле" : "Неправильный формат");
       phoneInput && phoneInput.focus();
-      return;
-    }
-    if (agreeCheck && !agreeCheck.checked) {
-      agreeCheck.focus();
       return;
     }
     showModalSuccess();
   });
 }
 
+updateSubmitState();
+
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
-    const target = document.querySelector(this.getAttribute("href"));
+    const href = this.getAttribute("href");
+    const target = document.querySelector(href);
     if (!target) return;
     e.preventDefault();
-    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    const header = document.querySelector("header");
+    const headerHeight = header ? header.offsetHeight : 0;
+    const targetTop = target.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({ top: targetTop - headerHeight - 16, behavior: "smooth" });
   });
 });
 
@@ -147,24 +235,54 @@ function format(digits) {
 
 function onInput() {
   var digits = getDigits(this.value);
-  this.value = digits.length ? format(digits) : "";
+  var pos = this.selectionStart;
+  var oldLen = this.value.length;
+  this.value = digits.length ? format(digits) : "+7";
+  var newLen = this.value.length;
+  var newPos = pos + (newLen - oldLen);
+  try { this.setSelectionRange(Math.max(2, newPos), Math.max(2, newPos)); } catch(e) {}
 }
 
 function onFocus() {
-  if (!this.value) this.value = "+7 (";
+  if (!this.value || this.value === "+7") this.value = "+7 (";
+  var len = this.value.length;
+  try { this.setSelectionRange(len, len); } catch(e) {}
 }
 
 function onBlur() {
-  var bad = ["+7", "+7 ", "+7 ("];
-  if (bad.indexOf(this.value) !== -1) this.value = "";
+  var digits = getDigits(this.value);
+  if (!digits.length) this.value = "";
 }
 
 function onKeydown(e) {
-  var bad = ["+7", "+7 ", "+7 ("];
-  if (e.key === "Backspace" && bad.indexOf(this.value) !== -1) {
-    this.value = "";
-    e.preventDefault();
+  if (e.key !== "Backspace") {
+    if (e.key === "Delete" && this.selectionStart <= 2 && this.selectionEnd <= 2) {
+      e.preventDefault();
+    }
+    return;
   }
+  e.preventDefault();
+  var val = this.value;
+  var selStart = this.selectionStart;
+  var selEnd = this.selectionEnd;
+  var newVal, digits, newPos;
+  if (selStart !== selEnd) {
+    var clearStart = Math.max(2, selStart);
+    newVal = val.slice(0, clearStart) + val.slice(selEnd);
+    digits = getDigits(newVal);
+    this.value = digits.length ? format(digits) : "+7";
+    newPos = clearStart;
+  } else {
+    if (selStart <= 2) return;
+    var pos = selStart - 1;
+    while (pos >= 2 && !/\d/.test(val[pos])) pos--;
+    if (pos < 2 || !/\d/.test(val[pos])) return;
+    newVal = val.slice(0, pos) + val.slice(pos + 1);
+    digits = getDigits(newVal);
+    this.value = digits.length ? format(digits) : "+7";
+    newPos = pos;
+  }
+  try { this.setSelectionRange(Math.max(2, newPos), Math.max(2, newPos)); } catch(ex) {}
 }
 
 document.querySelectorAll('input[type="tel"]').forEach(function (input) {
@@ -176,6 +294,7 @@ document.querySelectorAll('input[type="tel"]').forEach(function (input) {
 
 if (document.querySelector(".objects-swiper")) {
   new Swiper(".objects-swiper", {
+    loop: true,
     slidesPerView: 4,
     spaceBetween: 16,
     navigation: {
@@ -191,12 +310,12 @@ if (document.querySelector(".objects-swiper")) {
       768: {
         slidesPerView: 2,
         spaceBetween: 16,
-        slidesPerGroup: 2,
+        slidesPerGroup: 1,
       },
       1024: {
         slidesPerView: 4,
         spaceBetween: 16,
-        slidesPerGroup: 4,
+        slidesPerGroup: 1,
       },
     },
   });
@@ -205,7 +324,6 @@ if (document.querySelector(".objects-swiper")) {
 if (document.querySelector(".cases-swiper")) {
   new Swiper(".cases-swiper", {
     loop: true,
-    loopAdditionalSlides: 3,
     slidesPerView: 1,
     spaceBetween: 16,
     navigation: {
@@ -257,6 +375,10 @@ if (document.querySelector(".team-swiper")) {
     },
   });
 }
+
+document.querySelectorAll(".property-card").forEach(function (card) {
+  card.addEventListener("click", openModal);
+});
 
 const animTargets = document.querySelectorAll(".js-animate");
 
