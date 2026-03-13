@@ -74,7 +74,7 @@ html {
   padding-top: 6px;
   padding-left: 16px;
   padding-right: 16px;
-  max-width: 1920px;
+  max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -354,20 +354,20 @@ body.modal-open {
 /* ШАПКА */
 header {
   width: calc(100% - 24px);
-  max-width: calc(1920px - 24px);
+  max-width: calc(1440px - 24px);
 }
 
 @media (min-width: 768px) {
   header {
     width: calc(100% - 28px);
-    max-width: calc(1920px - 28px);
+    max-width: calc(1440px - 28px);
   }
 }
 
 @media (min-width: 1024px) {
   header {
     width: calc(100% - 32px);
-    max-width: calc(1920px - 32px);
+    max-width: calc(1440px - 32px);
   }
 }
 
