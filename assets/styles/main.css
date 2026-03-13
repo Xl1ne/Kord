@@ -70,6 +70,28 @@ html {
   }
 }
 
+@media (min-width: 1024px) {
+  .services-left-col {
+    width: clamp(360px, calc(360px + 304 * (100vw - 1024px) / 396), 664px);
+    flex-shrink: 0;
+  }
+}
+
+@media (min-width: 1420px) {
+  .service-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .phil-row-right {
+    position: relative;
+    left: -34px;
+    width: calc(100% + 34px);
+    padding: 24px;
+    padding-left: 64px;
+  }
+}
+
 .kord-main {
   padding-top: 6px;
   padding-left: 16px;
@@ -646,11 +668,5 @@ header.menu-open nav {
 @media (min-width: 1024px) {
   .team-card-height {
     height: 400px;
-  }
-}
-
-@media (min-width: 1440px) {
-  .team-card-height {
-    height: clamp(400px, calc(400px + 200 * (100vw - 1440px) / 480), 600px);
   }
 }
