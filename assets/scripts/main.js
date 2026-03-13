@@ -196,10 +196,10 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     const target = document.querySelector(href);
     if (!target) return;
     e.preventDefault();
-    const header = document.querySelector("header");
-    const headerHeight = header ? header.offsetHeight : 0;
+    const nav = document.querySelector("header nav");
+    const navBottom = nav ? nav.getBoundingClientRect().bottom : 80;
     const targetTop = target.getBoundingClientRect().top + window.scrollY;
-    window.scrollTo({ top: targetTop - headerHeight - 16, behavior: "smooth" });
+    window.scrollTo({ top: targetTop - navBottom - 16, behavior: "smooth" });
   });
 });
 
