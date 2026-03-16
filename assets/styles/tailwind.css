@@ -468,6 +468,9 @@ video {
 .h-14 {
   height: 3.5rem;
 }
+.h-\[56px\] {
+  height: 56px;
+}
 .h-16 {
   height: 4rem;
 }
@@ -528,8 +531,11 @@ video {
 .h-auto {
   height: auto;
 }
-.h-fluid-img-card {
-  height: clamp(200px, calc(171.83099px + 7.51174vw), 280px);
+.h-\[240px\] {
+  height: 240px;
+}
+.h-\[400px\] {
+  height: 400px;
 }
 .h-full {
   height: 100%;
@@ -542,6 +548,9 @@ video {
 }
 .w-14 {
   width: 3.5rem;
+}
+.w-\[56px\] {
+  width: 56px;
 }
 .w-16 {
   width: 4rem;
@@ -702,6 +711,9 @@ video {
 }
 .gap-fluid-gap {
   gap: clamp(32px, calc(23.5493px + 2.25352vw), 56px);
+}
+.gap-fluid-gap-team {
+  gap: clamp(48px, calc(23.5493px + 2.25352vw), 56px);
 }
 .overflow-hidden {
   overflow: hidden;
@@ -1780,8 +1792,8 @@ video {
   .min-\[1420px\]\:sticky {
     position: sticky;
   }
-  .min-\[1420px\]\:top-0 {
-    top: 0;
+  .min-\[1420px\]\:top-20 {
+    top: 5rem;
   }
   .min-\[1420px\]\:-mt-\[6px\] {
     margin-top: -6px;
@@ -1867,6 +1879,9 @@ video {
   }
   .min-\[1420px\]\:pt-20 {
     padding-top: 5rem;
+  }
+  .min-\[1420px\]\:mt-120 {
+    margin-top: 15rem;
   }
   .min-\[1420px\]\:pt-8 {
     padding-top: 2rem;
