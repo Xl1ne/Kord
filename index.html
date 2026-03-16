@@ -3613,7 +3613,7 @@
                 Оставьте заявку
               </h3>
 
-              <div class="flex flex-col gap-6 lg:gap-10 w-full lg:w-[330px]">
+              <form action="send-form.php" method="POST" class="flex flex-col gap-6 lg:gap-10 w-full lg:w-[330px]">
                 <div class="flex flex-col gap-4">
                   <p class="font-akrobat font-bold text-fluid-body text-dark">
                     Оставьте ваш номер телефона, чтобы получить консультацию или
@@ -3626,6 +3626,7 @@
                       id="name-input"
                       type="text"
                       autocomplete="name"
+                      name="name"
                       placeholder=" "
                       class="kord-input peer absolute inset-0 w-full h-full pt-[22px] pb-[6px] px-4 rounded-[12px] bg-transparent font-akrobat font-bold text-[18px] leading-[22px] text-dark border-none outline-none"
                     />
@@ -3642,6 +3643,7 @@
                     <input
                       id="phone-input"
                       type="tel"
+                      name="phone"
                       autocomplete="tel"
                       placeholder=" "
                       class="kord-input peer absolute inset-0 w-full h-full pt-[22px] pb-[6px] px-4 rounded-[12px] bg-transparent font-akrobat font-bold text-[18px] leading-[22px] text-dark border-none outline-none"
@@ -3659,7 +3661,7 @@
                 <div class="flex flex-col gap-4">
                   <button
                     id="modal-submit"
-                    type="button"
+                    type="submit"
                     class="btn-submit-disabled bg-primary text-white font-akrobat font-bold text-[18px] leading-[22px] px-5 py-4 rounded-[12px] w-full hover:bg-[#662966] transition-all duration-300"
                   >
                     Записаться на встречу
@@ -3672,6 +3674,7 @@
                         id="agree-check"
                         type="checkbox"
                         class="custom-checkbox"
+                        required
                       />
                     </div>
                     <p
@@ -3688,7 +3691,7 @@
                     </p>
                   </label>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
 
