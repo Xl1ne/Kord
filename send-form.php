@@ -1,16 +1,8 @@
 <?php
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require __DIR__ . '/vendor/autoload.php';
-
 // ---------- НАСТРОЙКИ ----------
-$RECIPIENT_EMAIL = 'info@example.com';   // <-- ЗАМЕНИТЬ на реальную почту
-$SMTP_HOST       = 'smtp.yandex.ru';     // <-- SMTP-сервер
-$SMTP_PORT       = 465;
-$SMTP_USER       = 'noreply@example.com'; // <-- SMTP логин
-$SMTP_PASS       = 'password';            // <-- SMTP пароль
+$RECIPIENT_EMAIL = 'info@example.com'; // <-- ЗАМЕНИТЬ на реальную почту заказчика
+$FROM_EMAIL      = 'noreply@kord.ru';
 $FROM_NAME       = 'Сайт КОРД';
 // --------------------------------
 
@@ -31,7 +23,10 @@ if ($phone === '') {
     exit;
 }
 
+$subject = 'Заявка с сайта КОРД';
+
 $body = "
+<html><body>
 <h2>Новая заявка с сайта КОРД</h2>
 <table style='border-collapse:collapse;'>
   <tr>
@@ -43,35 +38,19 @@ $body = "
     <td style='padding:6px 12px;'>" . htmlspecialchars($phone) . "</td>
   </tr>
 </table>
+</body></html>
 ";
 
-$mail = new PHPMailer(true);
+$headers  = "MIME-Version: 1.0\r\n";
+$headers .= "Content-type: text/html; charset=UTF-8\r\n";
+$headers .= "From: {$FROM_NAME} <{$FROM_EMAIL}>\r\n";
+$headers .= "Reply-To: {$FROM_EMAIL}\r\n";
 
-try {
-    $mail->isSMTP();
-    $mail->Host       = $SMTP_HOST;
-    $mail->SMTPAuth   = true;
-    $mail->Username   = $SMTP_USER;
-    $mail->Password   = $SMTP_PASS;
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-    $mail->Port       = $SMTP_PORT;
-    $mail->CharSet    = 'UTF-8';
+$sent = mail($RECIPIENT_EMAIL, $subject, $body, $headers);
 
-    $mail->setFrom($SMTP_USER, $FROM_NAME);
-    $mail->addAddress($RECIPIENT_EMAIL);
-
-    $mail->isHTML(true);
-    $mail->Subject = 'Заявка с сайта КОРД';
-    $mail->Body    = $body;
-    $mail->AltBody = "Имя: {$name}\nТелефон: {$phone}";
-
-    $mail->send();
-
+if ($sent) {
     echo json_encode(['success' => true, 'message' => 'OK']);
-} catch (Exception $e) {
+} else {
     http_response_code(500);
-    echo json_encode([
-        'success' => false,
-        'message' => 'Ошибка отправки: ' . $mail->ErrorInfo,
-    ]);
+    echo json_encode(['success' => false, 'message' => 'Ошибка отправки письма']);
 }

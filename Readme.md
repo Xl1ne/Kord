@@ -1,4 +1,4 @@
-=== ИНСТРУКЦИЯ ПО РАЗВЁРТЫВАНИЮ САЙТА КОРД ===
+=== ДЕПЛОЙ САЙТА КОРД (netsolve.ru) ===
 
 1. Подключиться к серверу:
    ssh serg@netsolve.ru
@@ -8,31 +8,23 @@
 
 3. Клонировать репозиторий (первый раз):
    git clone <URL_РЕПОЗИТОРИЯ> .
-
-   Если файлы уже есть — вместо clone:
+   
+   Если файлы уже есть:
    git init
    git remote add origin <URL_РЕПОЗИТОРИЯ>
    git fetch origin
    git reset --hard origin/main
 
-4. Установить PHPMailer:
-   composer install
-
-   Если composer не установлен:
-   curl -sS https://getcomposer.org/installer | php
-   php composer.phar install
-
-5. Настроить SMTP в файле send-form.php (строки 8-13):
-   - $RECIPIENT_EMAIL — почта, куда приходят заявки
-   - $SMTP_HOST — SMTP сервер (smtp.yandex.ru / smtp.mail.ru / и т.д.)
-   - $SMTP_USER — логин SMTP
-   - $SMTP_PASS — пароль SMTP
-
-6. Если index.html нужно переименовать:
+4. Переименовать index.html → index.php:
    mv index.html index.php
 
-7. Убедиться что PHP-FPM запущен для этого сайта.
+5. Настроить почту в send-form.php (строка 4):
+   $RECIPIENT_EMAIL = 'реальная@почта.ru';
 
-=== ОБНОВЛЕНИЕ (в дальнейшем) ===
-cd /var/www/netsolve/www/cp/05
-git pull origin main
+6. Убедиться что PHP-FPM запущен.
+
+=== ОБНОВЛЕНИЕ ===
+   cd /var/www/netsolve/www/cp/05
+   git pull origin main
+
+Composer НЕ нужен. Всё работает через встроенный mail().
