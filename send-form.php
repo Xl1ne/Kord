@@ -1,9 +1,9 @@
 <?php
 
 // ---------- НАСТРОЙКИ ----------
-$RECIPIENT_EMAIL = 'info@example.com'; // <-- ЗАМЕНИТЬ на реальную почту заказчика
-$FROM_EMAIL      = 'noreply@kord.ru';
-$FROM_NAME       = 'Сайт КОРД';
+$RECIPIENT_EMAILS = ['trampledcloud@gmail.com', 'C5527A@gmail.com'];
+$FROM_EMAIL       = 'main@kord-realty.ru';
+$FROM_NAME        = 'Сайт КОРД';
 // --------------------------------
 
 header('Content-Type: application/json; charset=utf-8');
@@ -46,9 +46,14 @@ $headers .= "Content-type: text/html; charset=UTF-8\r\n";
 $headers .= "From: {$FROM_NAME} <{$FROM_EMAIL}>\r\n";
 $headers .= "Reply-To: {$FROM_EMAIL}\r\n";
 
-$sent = mail($RECIPIENT_EMAIL, $subject, $body, $headers);
+$allSent = true;
+foreach ($RECIPIENT_EMAILS as $to) {
+    if (!mail($to, $subject, $body, $headers)) {
+        $allSent = false;
+    }
+}
 
-if ($sent) {
+if ($allSent) {
     echo json_encode(['success' => true, 'message' => 'OK']);
 } else {
     http_response_code(500);
