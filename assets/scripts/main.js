@@ -176,15 +176,49 @@ if (agreeCheck) {
   agreeCheck.addEventListener("change", updateSubmitState);
 }
 
-if (submitBtn) {
-  submitBtn.addEventListener("click", function () {
+var formEl = document.querySelector('#modal-form form');
+
+if (formEl) {
+  formEl.addEventListener("submit", function (e) {
+    e.preventDefault();
+
     if (!isPhoneValid()) {
       var digits = getDigits(phoneInput ? phoneInput.value : "");
       showPhoneError(digits.length === 0 ? "Обязательное поле" : "Неправильный формат");
       phoneInput && phoneInput.focus();
       return;
     }
-    showModalSuccess();
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Отправка...";
+    }
+
+    var formData = new FormData(formEl);
+
+    fetch("send-form.php", {
+      method: "POST",
+      body: formData,
+    })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (data.success) {
+          showModalSuccess();
+          formEl.reset();
+          updateSubmitState();
+        } else {
+          alert("Ошибка: " + (data.message || "Попробуйте позже"));
+        }
+      })
+      .catch(function () {
+        alert("Не удалось отправить заявку. Проверьте соединение.");
+      })
+      .finally(function () {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Записаться на встречу";
+        }
+      });
   });
 }
 
