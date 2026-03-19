@@ -6,10 +6,10 @@ $FROM_EMAIL       = 'main@kord-realty.ru';
 $FROM_NAME        = 'Сайт КОРД';
 
 // SMTP через Beget
-$SMTP_HOST = 'mail.kord-realty.ru';
-$SMTP_PORT = 465;
+$SMTP_HOST = 'smtp.beget.com';
+$SMTP_PORT = 2525;
 $SMTP_USER = 'main@kord-realty.ru';
-$SMTP_PASS = 'СЮДА_ПАРОЛЬ';  // <-- Вставить пароль от почты main@kord-realty.ru
+$SMTP_PASS = 'dLw&IRZTP8Pp';  // <-- Вставить пароль от почты main@kord-realty.ru
 // --------------------------------
 
 header('Content-Type: application/json; charset=utf-8');
@@ -49,7 +49,7 @@ $body = "<html><body>
  * Отправка письма через SMTP с SSL-авторизацией
  */
 function smtpSend($host, $port, $user, $pass, $fromEmail, $fromName, $toEmail, $subject, $htmlBody) {
-    $socket = @fsockopen("ssl://{$host}", $port, $errno, $errstr, 10);
+    $socket = @fsockopen($host, $port, $errno, $errstr, 10);
     if (!$socket) {
         return "Не удалось подключиться к SMTP: {$errstr} ({$errno})";
     }
@@ -63,7 +63,7 @@ function smtpSend($host, $port, $user, $pass, $fromEmail, $fromName, $toEmail, $
     }
 
     $commands = [
-        "EHLO " . gethostname(),
+        "EHLO kord-realty.ru",
         "AUTH LOGIN",
         base64_encode($user),
         base64_encode($pass),
